@@ -1,4 +1,6 @@
 language: ruby
 rvm:
  - 2.5.3
- - jruby
+script:
+  - bundle exec rake db:migrate
+  - bundle exec rake 
