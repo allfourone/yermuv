@@ -7,4 +7,5 @@ Style/Documentation:
 AllCops:
   Exclude:
     - 'bin/*'
-    - 'test/*'
+		- 'test/*'
+    - 'vendor/bundle/**/*'
