@@ -1,0 +1,11 @@
+Metrics/LineLength:
+  Enabled: false
+
+Style/Documentation: 
+  Enabled: false
+
+AllCops:
+  Exclude:
+    - 'bin/*'
+    - 'test/*'
+    - 'vendor/bundle/**/*'
