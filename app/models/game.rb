@@ -1,4 +1,6 @@
-class Game < ApplicationRecord
+# frozen_string_literal: true
 
-	validates :name, presence: true 
+class Game < ApplicationRecord
+  validates :name, presence: true
+  belongs_to :user
 end
