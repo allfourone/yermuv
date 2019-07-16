@@ -8,7 +8,7 @@ AllCops:
   Exclude:
     - 'bin/*'
     - 'test/*'
-    - 'vendor/'
+    - 'vendor/**/*'
     - 'lib/'
     - 'log/'
     - 'public/'
