@@ -8,4 +8,11 @@ AllCops:
   Exclude:
     - 'bin/*'
     - 'test/*'
-    - 'vendor/bundle/**/*'
+    - 'vendor/**/*'
+    - 'lib/**/*'
+    - 'log/**/*'
+    - 'public/**/*'
+    - 'storage/**/*'
+    - 'test/**/*'
+    - 'config/**/*'
+    - 'db/**/*'

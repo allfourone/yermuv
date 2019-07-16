@@ -3,6 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe GamesController, type: :controller do
+
   
   describe 'games#new action' do
     it 'should require users to be logged in' do
@@ -14,11 +15,13 @@ RSpec.describe GamesController, type: :controller do
       user = FactoryBot.create(:user)
       sign_in user
 
+
       get :new
       expect(response).to have_http_status(:success)
     end
   end
 
+<<<<<<< HEAD
   describe "games#create action" do
     
 it "should require users to be logged in" do 
@@ -38,6 +41,8 @@ end
       game = Game.last
       expect(game.name).to eq("Mike")
       expect(game.user).to eq(user)
+
+
     end
   end
 
