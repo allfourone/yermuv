@@ -21,7 +21,7 @@ RSpec.describe GamesController, type: :controller do
     end
   end
 
-<<<<<<< HEAD
+
   describe "games#create action" do
     
 it "should require users to be logged in" do 
