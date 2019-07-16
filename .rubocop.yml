@@ -4,6 +4,10 @@ Metrics/LineLength:
 Style/Documentation: 
   Enabled: false
 
+Metrics/BlockLength:
+  Exclude:
+    - "**/*_spec.rb"
+
 AllCops:
   Exclude:
     - 'bin/*'
@@ -16,3 +20,4 @@ AllCops:
     - 'test/**/*'
     - 'config/**/*'
     - 'db/**/*'
+

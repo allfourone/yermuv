@@ -1,17 +1,18 @@
 # frozen_string_literal: true
 
 class GamesController < ApplicationController
-
-  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, only: %i[new create]
   def new
     @game = Game.new
   end
 
   def create
-    @game = Game.create(game_params)
-    redirect_to root_path
-
-
+    @game = current_user.games.create(game_params)
+    if @game.valid?
+      redirect_to root_path
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def show
