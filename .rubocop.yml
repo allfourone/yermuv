@@ -14,3 +14,5 @@ AllCops:
     - 'public/'
     - 'storage/'
     - 'test/'
+    - 'config'
+    - 'db/schema.rb'
