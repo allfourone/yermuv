@@ -47,18 +47,10 @@ GEM
     archive-zip (0.12.0)
       io-like (~> 0.3.0)
     arel (9.0.0)
-
-    autoprefixer-rails (9.6.1)
-      execjs
     ast (2.4.0)
     autoprefixer-rails (9.6.1)
       execjs
     bcrypt (3.1.13)
-
-    ast (2.4.0)
-    autoprefixer-rails (9.6.1)
-      execjs
-
     bindex (0.8.1)
     bootsnap (1.4.4)
       msgpack (~> 1.0)
@@ -177,7 +169,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
-    regexp_parser (1.5.1)
+    regexp_parser (1.6.0)
     responders (3.0.0)
       actionpack (>= 5.0)
       railties (>= 5.0)
@@ -202,7 +194,7 @@ GEM
       rspec-mocks (~> 3.8.0)
       rspec-support (~> 3.8.0)
     rspec-support (3.8.2)
-    rubocop (0.72.0)
+    rubocop (0.73.0)
       jaro_winkler (~> 1.5.1)
       parallel (~> 1.10)
       parser (>= 2.6)
@@ -283,12 +275,8 @@ DEPENDENCIES
   capybara (>= 2.15)
   chromedriver-helper
   coffee-rails (~> 4.2)
-
-  factory_bot_rails
   devise
-
   factory_bot_rails
-
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
