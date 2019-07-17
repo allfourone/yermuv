@@ -1,0 +1,35 @@
+@import "bootstrap";
+
+h1 {
+    text-align: center;
+
+}
+
+
+.container-fluid {
+    padding-top: 20%;
+    margin: auto;
+    border-width: thin;
+
+}
+
+.dark {
+    background-color: #C08155;
+    width: 60px;
+    height: 80px;
+    font-size: 50px;
+    border-style: solid;
+    border-width: thin;
+
+}
+
+.light {
+    background-color: #F9D8AE;
+    width: 60px;
+    height: 80px;
+    font-size: 50px;
+    border-style: solid;
+    border-width: thin;
+
+
+}
