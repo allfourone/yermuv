@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   has_many :games
 
-  def.self.find_or_create_from_auth_hash(auth)
+  def self.find_or_create_from_auth_hash(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do
       user.provider = auth.provider
       user.uid = auth.uid
@@ -19,5 +19,4 @@ class User < ApplicationRecord
       user.save!
     end
   end
-
 end
