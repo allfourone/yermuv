@@ -1,22 +1,27 @@
-<!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title>Yermuv</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
 
-  <body>
-
+<body>
     <% if notice.present? %>
-      <p class="alert alert-info"><%= notice %></p>
+    <p class="alert alert-info">
+        <%= notice %>
+    </p>
     <% end %>
     <% if alert.present? %>
-      <p class="alert alert-danger"><%= alert %></p>
+    <p class="alert alert-danger">
+        <%= alert %>
+    </p>
     <% end %>
     <%= yield %>
-  </body>
+</body>
+
 </html>
