@@ -5,145 +5,35 @@ h1 {
 
 }
 
+.piece {
 
-
-.no-gutters {
-    margin-right: 0;
-    margin-left: 0;
-
-    >[class*="col-"] {
-        padding-right: 0;
-        padding-left: 0;
-    }
+    font-size: 4.5vw;
+    text-align: center;
+    line-height: 1.7;
 }
 
 
 
-/* None since this is the default in bbotstrap 4 */
-@include media-breakpoint-up(xs) {
-    .piece {
-        font-size: 20px;
-        text-align: center;
-        margin-top: 1px
-    }
+.dark {
+    background-color: #C08155;
+    width: 28px;
+    height: 28px;
 
-    .dark {
-        background-color: #C08155;
-        width: 28px;
-        height: 28px;
-        font-size: 27px;
 
-    }
+    padding-left: 0%;
+    padding-right: 0%;
+    padding-bottom: 8.3%;
 
-    .light {
-        background-color: #F9D8AE;
-        width: 28px;
-        height: 28px;
-        font-size: 27px;
-
-    }
 
 }
 
-/*@media (min-width: 576px)  */
-@include media-breakpoint-up(sm) {
-    .piece {
-        font-size: 28px;
-        text-align: center;
-        margin-top: 1px
-    }
+.light {
+    background-color: #F9D8AE;
+    width: 28px;
+    height: 28px;
 
-    .dark {
-        background-color: #C08155;
-        width: 45px;
-        height: 45px;
-        font-size: 27px;
-
-    }
-
-    .light {
-        background-color: #F9D8AE;
-        width: 45px;
-        height: 45px;
-        font-size: 27px;
-
-    }
-
-}
-
-/* @media (min-width: 768px) */
-@include media-breakpoint-up(md) {
-    .piece {
-        font-size: 37px;
-        text-align: center;
-        margin-top: 2px
-    }
-
-    .dark {
-        background-color: #C08155;
-        width: 58px;
-        height: 58px;
-        font-size: 27px;
-
-    }
-
-    .light {
-        background-color: #F9D8AE;
-        width: 58px;
-        height: 58px;
-        font-size: 27px;
-
-    }
-
-}
-
-/*@media (min-width: 992px)*/
-@include media-breakpoint-up(lg) {
-    .piece {
-        font-size: 46px;
-        text-align: center;
-        margin-top: -1px
-    }
-
-    .dark {
-        background-color: #C08155;
-        width: 60px;
-        height: 60px;
-        font-size: 27px;
-
-    }
-
-    .light {
-        background-color: #F9D8AE;
-        width: 60px;
-        height: 60px;
-        font-size: 27px;
-
-    }
-}
-
-/*@media (min-width: 1200px)*/
-@include media-breakpoint-up(xl) {
-    .piece {
-        font-size: 71px;
-        text-align: center;
-        margin-top: -5px
-    }
-
-    .dark {
-        background-color: #C08155;
-        width: 93px;
-        height: 93px;
-        font-size: 27px;
-
-    }
-
-    .light {
-        background-color: #F9D8AE;
-        width: 93px;
-        height: 93px;
-        font-size: 27px;
-
-    }
+    padding-left: 0%;
+    padding-right: 0%;
+    padding-bottom: 8.3%;
 
 }
