@@ -15,6 +15,5 @@ Rails.application.routes.draw do
 
   root to: "home#show"
   
-end
   resources :games, only: %i[new create show]
 end
