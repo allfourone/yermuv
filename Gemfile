@@ -68,8 +68,8 @@ group :development, :test do
   gem 'factory_bot_rails'
 end
 
+gem 'jquery-ui-rails'
 gem 'rspec'
 gem 'rspec-rails'
-gem 'simple_form'
-
 gem 'rubocop'
+gem 'simple_form'
