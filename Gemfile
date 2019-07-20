@@ -77,3 +77,4 @@ gem 'rspec-rails'
 gem 'simple_form'
 
 gem 'rubocop'
+gem 'jquery-ui-rails'
