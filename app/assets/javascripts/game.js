@@ -1,5 +1,6 @@
 $(() => {
 
+	// This needs to be an AJAX request to pull from the DB and not hard-coded!
 	var state = [
 		['br','bn','bb','bq','bk','bb','bn','br'],
 		['bp','bp','bp','bp','bp','bp','bp','bp'],
@@ -27,8 +28,7 @@ $(() => {
 	});
 
 	let validatePawn = (piece) => {
-		state[4][4] = 'wp';
-		console.log(state,piece);
+		// Implement me!
 	}
 
 });
