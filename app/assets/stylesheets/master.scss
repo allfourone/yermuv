@@ -1,7 +1,7 @@
 @import "bootstrap";
 @import url('https://fonts.googleapis.com/css?family=Oswald|Roboto+Slab&display=swap');
 
-h1 {
+.centered {
     text-align: center;
 }
 
@@ -22,9 +22,13 @@ h3,
 h4,
 h5,
 h6,
-.navbar {
+    {
     margin: 0;
 
+}
+
+h1 {
+    text-align: center;
 }
 
 .frosty {
