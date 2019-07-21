@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -43,11 +42,9 @@ gem 'bootstrap', '~> 4.3.1'
 gem 'devise'
 gem 'jquery-rails'
 
-
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-
 end
 
 group :development do
@@ -81,6 +78,5 @@ gem 'rspec'
 gem 'rspec-rails'
 gem 'simple_form'
 
-gem 'rubocop'
 gem 'jquery-ui-rails'
-
+gem 'rubocop'
