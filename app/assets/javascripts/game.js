@@ -39,7 +39,6 @@ $(() => {
 
 		// Is only capturable if the destination is not empty and the colors are different
 		let capturable = () => {
-			console.log(pieceColor, destinationColor);
 			if (destinationColor !== 'empty' && pieceColor !== destinationColor) {
 				return true;
 			}
@@ -65,11 +64,19 @@ $(() => {
 
 		// Check if piece has moved yet, and allow either 1 or 2 squares
 		// Only works for white pawns currently
-		if (originY == 6 && (destY == 5 || destY == 4)) {
-			return true;		
-		} else if (destY > 4) {
-			return false;
-		}
+		if (direction > 0) {
+			if (originY == 6 && (destY == 5 || destY == 4)) {
+				return true;		
+			} else if (originY == 6 && destY < 4) {
+				return false;
+			}
+		} else if (direction < 0) {
+			if (originY == 1 && (destY == 2 || destY == 3)) {
+				return true;		
+			} else if (originY == 1 && destY > 3) {
+				return false;
+			}
+		}		
 
 		// Check if pawn moving forward based on direction 
 		if (originY - (1 * direction) !== destY) {
@@ -81,10 +88,9 @@ $(() => {
 		// If moving diagonally, check if the distance between rows is 1
 		// If it is, and the piece is of the opposite color, allow movement
 		if ((empty && !capturable()) || (!empty && (Math.pow((originX - destX),2) == 1 && capturable()))) {
-			console.log(originY, destY, direction, originY - (1 * direction) == destY)
 			return true;
 		}
-
+		
 		return false;
 	}
 
