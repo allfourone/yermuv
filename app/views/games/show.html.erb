@@ -16,7 +16,9 @@
 								row="<%= row_index %>"
 								col="<%= col_index %>"
 								>
-                <p class="piece">&#9820;</p>
+									<% if @game.state[row_index][col_index] %>
+                		<p class="piece"><%= @game.state[row_index][col_index].html_safe %></p>
+									<% end %>
             	</div>
 						<% end %>
 					</div>
