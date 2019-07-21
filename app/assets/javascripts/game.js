@@ -24,12 +24,12 @@ $(() => {
 		console.log(destination.innerText,destinationPiece)
 		let destinationColor = !destinationPiece ? "empty" : destinationPiece < 9818 ? "white" : "black";
 		
-		return pieceColor === destinationColor ? true : [pieceColor, destinationColor];
+		return pieceColor === destinationColor ? false : [pieceColor, destinationColor];
 	}
 
 	let validatePawn = (piece, destination) => {
 		// Begin by checking if the square is occupied by same color
-		if (squareOccupiedBySameColor(piece, destination)) {
+		if (!squareOccupiedBySameColor(piece, destination)) {
 			return false;
 		} 
 		
