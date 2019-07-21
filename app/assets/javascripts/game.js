@@ -16,6 +16,14 @@ $(() => {
 		revert: "invalid"
 	});
 
+	let squareOccupiedBySameColor = (piece, destination) => {
+		let pieceColor = piece.html().charCodeAt(0) < 9818 ? "white" : "black";
+		let destinationPiece = destination.innerHTML.charCodeAt(0);
+		let destinationColor = destinationPiece == 10 ? "empty" : destinationPiece < 9818 ? "white" : "black";
+		
+		return pieceColor === destinationColor;
+	}
+
 	let validatePawn = (piece, destination) => {
 		let originX = parseInt($(piece).parent().attr('col'));
 		let originY = parseInt($(piece).parent().attr('row'));
@@ -41,7 +49,7 @@ $(() => {
 
 	$('.col-1').droppable({
 		drop: (e, ui) => {
-			if (validatePawn(ui.draggable, e.target)) {
+			if (validatePawn(ui.draggable, e.target) && !squareOccupiedBySameColor(ui.draggable, e.target)) {
 				e.target.innerHTML = `<p class="piece">${ui.draggable.html()}</p>`;
 				ui.draggable.remove();
 				$('.piece').draggable({
