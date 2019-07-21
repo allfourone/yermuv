@@ -18,19 +18,40 @@ $(() => {
 
 	let squareOccupiedBySameColor = (piece, destination) => {
 		let pieceColor = piece.html().charCodeAt(0) < 9818 ? "white" : "black";
-		let destinationPiece = destination.innerHTML.charCodeAt(0);
-		let destinationColor = destinationPiece == 10 ? "empty" : destinationPiece < 9818 ? "white" : "black";
+		let destinationPiece = destination.innerText ? destination.innerText.charCodeAt(0) : false;
+		console.log(destination.innerText,destinationPiece)
+		let destinationColor = !destinationPiece ? "empty" : destinationPiece < 9818 ? "white" : "black";
 		
-		return pieceColor === destinationColor;
+		return pieceColor === destinationColor ? false : [pieceColor, destinationColor];
 	}
 
 	let validatePawn = (piece, destination) => {
+		if (!squareOccupiedBySameColor(piece, destination)) {
+			return false;
+		} 
+		
+		let colors = squareOccupiedBySameColor(piece, destination)
+		let pieceColor = colors[0];
+		let destinationColor = colors[1];
+		console.log(colors, pieceColor, destinationColor)
+
+		let capturable = () => {
+			if (pieceColor !== 'empty' && destinationColor !== 'empty') {
+				if (pieceColor !== destinationColor) {
+					return true;
+				}
+			}
+			return false;
+		}
+
+		let empty = destinationColor == 'empty';
+
 		let originX = parseInt($(piece).parent().attr('col'));
 		let originY = parseInt($(piece).parent().attr('row'));
 		let destX = parseInt($(destination).attr('col'));
 		let destY = parseInt($(destination).attr('row'));
 
-		if (originX !== destX) {
+		if (originX !== destX && !capturable) {
 			return false;
 		}
 
@@ -40,16 +61,17 @@ $(() => {
 			return false;
 		}
 
-		if (originY - 1 == destY) {
+		if (originY - 1 == destY && (empty || (Math.pow((originX - destX),2) == 1 && capturable))) {
+			console.log(empty, pieceColor, destinationColor)
 			return true;
 		}
-		
+		capturable();
 		return false;
 	}
 
 	$('.col-1').droppable({
 		drop: (e, ui) => {
-			if (validatePawn(ui.draggable, e.target) && !squareOccupiedBySameColor(ui.draggable, e.target)) {
+			if (validatePawn(ui.draggable, e.target)) {
 				e.target.innerHTML = `<p class="piece">${ui.draggable.html()}</p>`;
 				ui.draggable.remove();
 				$('.piece').draggable({
