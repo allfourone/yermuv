@@ -1,5 +1,8 @@
 #!/usr/bin/env ruby
+<<<<<<< HEAD
 # frozen_string_literal: true
+=======
+>>>>>>> 6b639be258e6cccc6288f2412d165b697fac6a56
 
 # This file loads Spring without using Bundler, in order to be fast.
 # It gets overwritten when you run the `spring binstub` command.

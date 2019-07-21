@@ -1,7 +1,11 @@
+<<<<<<< HEAD
 # frozen_string_literal: true
 
 Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'yermuv.herokuapp.com' }
+=======
+Rails.application.configure do
+>>>>>>> 6b639be258e6cccc6288f2412d165b697fac6a56
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
@@ -26,7 +30,11 @@ Rails.application.configure do
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
   # Compress JavaScripts and CSS.
+<<<<<<< HEAD
   config.assets.js_compressor = Uglifier.new(harmony: true)
+=======
+  config.assets.js_compressor = :uglifier
+>>>>>>> 6b639be258e6cccc6288f2412d165b697fac6a56
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
@@ -57,7 +65,11 @@ Rails.application.configure do
   config.log_level = :debug
 
   # Prepend all log lines with the following tags.
+<<<<<<< HEAD
   config.log_tags = [:request_id]
+=======
+  config.log_tags = [ :request_id ]
+>>>>>>> 6b639be258e6cccc6288f2412d165b697fac6a56
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
@@ -86,7 +98,11 @@ Rails.application.configure do
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
+<<<<<<< HEAD
   if ENV['RAILS_LOG_TO_STDOUT'].present?
+=======
+  if ENV["RAILS_LOG_TO_STDOUT"].present?
+>>>>>>> 6b639be258e6cccc6288f2412d165b697fac6a56
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
