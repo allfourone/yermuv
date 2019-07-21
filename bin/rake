@@ -1,13 +1,10 @@
 #!/usr/bin/env ruby
-<<<<<<< HEAD
+
 # frozen_string_literal: true
 
 begin
   load File.expand_path('spring', __dir__)
-=======
-begin
-  load File.expand_path('../spring', __FILE__)
->>>>>>> 6b639be258e6cccc6288f2412d165b697fac6a56
+
 rescue LoadError => e
   raise unless e.message.include?('spring')
 end

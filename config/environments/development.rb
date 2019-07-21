@@ -1,11 +1,8 @@
-<<<<<<< HEAD
 # frozen_string_literal: true
 
 Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost:3030' }
-=======
-Rails.application.configure do
->>>>>>> 6b639be258e6cccc6288f2412d165b697fac6a56
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
