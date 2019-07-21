@@ -1,7 +1,111 @@
 @import "bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Oswald|Roboto+Slab&display=swap');
 
 h1 {
     text-align: center;
+}
+
+.hero {
+    background: image_url('hero.jpg') no-repeat top center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 370px;
+    box-shadow: 0px 3px 8px #2a2a2a;
+
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.navbar {
+    margin: 0;
+
+}
+
+.frosty {
+
+    color: white;
+
+}
+
+.frosty h1 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 100;
+    text-shadow: rgba(0, 0, 0, 0.95) 1px 1px;
+}
+
+.frosty h2 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 200;
+    text-shadow: rgba(0, 0, 0, 0.95) 1px 1px;
+
+}
+
+.btn {
+    border-radius: 2px;
+    background: black;
+    border-color: white;
+    width: 180px;
+}
+
+.btn:hover {
+    background: black;
+    border-color: white;
+}
+
+.divider-style {
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
+
+.img-responsive {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+
+
+}
+
+.team {
+    padding: 10px 10px 10px 10px;
+
+}
+
+.booyah-box {
+    -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
+    -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
+    box-shadow: 1px 1px 2px 0 #d0d0d0;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
+    padding-top: 10px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+}
+
+.booyah-box h2,
+.booyah-box h1 {
+    margin: 10px;
+}
+
+a {
+    color: #8C0000;
+}
+
+a:hover {
+    color: #636C72;
 }
 
 
