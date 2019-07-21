@@ -7,12 +7,42 @@ h1 {
 
 .piece {
 
-    font-size: 4.5vw;
+    font-size: 17px;
     text-align: center;
     line-height: 1.7;
     z-index: 100;
     cursor: pointer;
 
+}
+
+@media (min-width: 400px) {
+    .piece {
+        font-size: 27px;
+    }
+}
+
+
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+    .piece {
+        font-size: 38px;
+    }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+    .piece {
+        font-size: 52px;
+    }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+    .piece {
+        font-size: 63px;
+        line-height: 1.5
+    }
 }
 
 
