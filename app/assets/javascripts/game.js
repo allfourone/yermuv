@@ -63,7 +63,7 @@ $(() => {
 		}
 
 		// Check if piece has moved yet, and allow either 1 or 2 squares
-		// Only works for white pawns currently
+		// Works for both black and white pawns
 		if (direction > 0) {
 			if (originY == 6 && (destY == 5 || destY == 4)) {
 				return true;		
@@ -90,7 +90,7 @@ $(() => {
 		if ((empty && !capturable()) || (!empty && (Math.pow((originX - destX),2) == 1 && capturable()))) {
 			return true;
 		}
-		
+
 		return false;
 	}
 
