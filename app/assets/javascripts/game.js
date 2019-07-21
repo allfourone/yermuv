@@ -21,7 +21,6 @@ $(() => {
 	let squareOccupiedBySameColor = (piece, destination) => {
 		let pieceColor = piece.html().charCodeAt(0) < 9818 ? "white" : "black";
 		let destinationPiece = destination.innerText ? destination.innerText.charCodeAt(0) : false;
-		console.log(destination.innerText,destinationPiece)
 		let destinationColor = !destinationPiece ? "empty" : destinationPiece < 9818 ? "white" : "black";
 		
 		return pieceColor === destinationColor ? false : [pieceColor, destinationColor];
@@ -37,20 +36,18 @@ $(() => {
 		let colors = squareOccupiedBySameColor(piece, destination)
 		let pieceColor = colors[0];
 		let destinationColor = colors[1];
-		console.log(colors, pieceColor, destinationColor)
 
 		// Is only capturable if the destination is not empty and the colors are different
 		let capturable = () => {
-			if (pieceColor !== 'empty' && destinationColor !== 'empty') {
-				if (pieceColor !== destinationColor) {
-					return true;
-				}
+			console.log(pieceColor, destinationColor);
+			if (destinationColor !== 'empty' && pieceColor !== destinationColor) {
+				return true;
 			}
 			return false;
 		}
 
 		// Calc if the destination is empty
-		let empty = destinationColor == 'empty';
+		let empty = destinationColor === 'empty';
 
 		// Calculate origin & destination coords given the HTML nodes
 		let originX = parseInt($(piece).parent().attr('col'));
@@ -58,7 +55,11 @@ $(() => {
 		let destX = parseInt($(destination).attr('col'));
 		let destY = parseInt($(destination).attr('row'));
 
-		if (originX !== destX && !capturable) {
+		// Set positive direction for white, negative direction for black
+		let direction = pieceColor === "white" ? 1 : -1;
+
+		// Only allow diagonal movement if a piece is capturable
+		if (originX !== destX && !capturable()) {
 			return false;
 		}
 
@@ -70,16 +71,20 @@ $(() => {
 			return false;
 		}
 
-		// Check if pawn moving forward and square is empty
+		// Check if pawn moving forward based on direction 
+		if (originY - (1 * direction) !== destY) {
+			return false;
+		}
+		
 		// If square is empty, move forward in straight line
 		// If square is not empty, stop movement
 		// If moving diagonally, check if the distance between rows is 1
 		// If it is, and the piece is of the opposite color, allow movement
-		if (originY - 1 == destY && (empty || (Math.pow((originX - destX),2) == 1 && capturable))) {
-			console.log(empty, pieceColor, destinationColor)
+		if ((empty && !capturable()) || (!empty && (Math.pow((originX - destX),2) == 1 && capturable()))) {
+			console.log(originY, destY, direction, originY - (1 * direction) == destY)
 			return true;
 		}
-		capturable();
+
 		return false;
 	}
 
