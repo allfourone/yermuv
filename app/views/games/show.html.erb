@@ -1,7 +1,14 @@
 <head>
     <%= javascript_include_tag "game", "data-turbolinks-track" => "reload" %>
 </head>
-<h1 class="centered">Here is the show page</h1>
+<br />
+<h1 class="centered">
+    <%= @game.name %>
+    <br />
+    <%= link_to 'Return Home', root_path, class: 'btn btn-success'%>
+    <br />
+    <br />
+</h1>
 <div class="container">
     <div class="row  odd ">
         <div class="col-1 offset-2 light ">
@@ -148,4 +155,8 @@
             <p class="piece">&#9814;</p>
         </div>
     </div>
+    <br />
+    <h1 class="centered">
+        <%= current_user.email %>
+    </h1>
     </body>
