@@ -1,162 +1,40 @@
 <head>
     <%= javascript_include_tag "game", "data-turbolinks-track" => "reload" %>
 </head>
-<br />
-<h1 class="centered">
-    <%= @game.name %>
-    <br />
-    <%= link_to 'Return Home', root_path, class: 'btn btn-success'%>
-    <br />
-    <br />
-</h1>
-<div class="container">
-    <div class="row  odd ">
-        <div class="col-1 offset-2 light ">
-            <p class="piece">&#9820;</p>
-        </div>
-        <div class="col-1 dark">
-            <p class="piece">
-                &#9822;</p>
-        </div>
-        <div class="col-1 light">
-            <p class="piece">&#9821;</p>
-        </div>
-        <div class="col-1 dark">
-            <p class="piece">&#9819;</p>
-        </div>
-        <div class="col-1 light">
-            <p class="piece">&#9818;</p>
-        </div>
-        <div class="col-1 dark">
-            <p class="piece">&#9821;</p>
-        </div>
-        <div class="col-1 light">
-            <p class="piece">&#9822;</p>
-        </div>
-        <div class="col-1 dark">
-            <p class="piece">&#9820;</p>
-        </div>
-    </div>
-    <div class="row even">
-        <div class="col-1 offset-2   dark">
-            <p class="piece">&#9823;</p>
-        </div>
-        <div class="col-1 light">
-            <p class="piece">&#9823;</p>
-        </div>
-        <div class="col-1 dark">
-            <p class="piece">&#9823;</p>
-        </div>
-        <div class="col-1 light">
-            <p class="piece">&#9823;</p>
-        </div>
-        <div class="col-1 dark">
-            <p class="piece">&#9823;</p>
-        </div>
-        <div class="col-1 light">
-            <p class="piece">&#9823;</p>
-        </div>
-        <div class="col-1 dark">
-            <p class="piece">&#9823;</p>
-        </div>
-        <div class="col-1 light">
-            <p class="piece">&#9823;</p>
-        </div>
-    </div>
-    <div class="row odd">
-        <div class="col-1 offset-2 light"></div>
-        <div class="col-1  dark"></div>
-        <div class="col-1 light"></div>
-        <div class="col-1 dark"></div>
-        <div class="col-1 light"></div>
-        <div class="col-1 dark"></div>
-        <div class="col-1 light"></div>
-        <div class="col-1 dark"></div>
-    </div>
-    <div class="row even">
-        <div class="col-1 offset-2 dark"></div>
-        <div class="col-1 light"></div>
-        <div class="col-1 dark"></div>
-        <div class="col-1 light"></div>
-        <div class="col-1 dark"></div>
-        <div class="col-1 light"></div>
-        <div class="col-1 dark"></div>
-        <div class="col-1 light"></div>
-    </div>
-    <div class="row odd">
-        <div class="col-1 offset-2 light"></div>
-        <div class="col-1  dark"></div>
-        <div class="col-1 light"></div>
-        <div class="col-1 dark"></div>
-        <div class="col-1 light"></div>
-        <div class="col-1 dark"></div>
-        <div class="col-1 light"></div>
-        <div class="col-1 dark"></div>
-    </div>
-    <div class="row even">
-        <div class="col-1 offset-2 dark"></div>
-        <div class="col-1 light"></div>
-        <div class="col-1 dark"></div>
-        <div class="col-1 light"></div>
-        <div class="col-1 dark"></div>
-        <div class="col-1 light"></div>
-        <div class="col-1 dark"></div>
-        <div class="col-1 light"></div>
-    </div>
-    <div class="row odd">
-        <div class="col-1 offset-2 light">
-            <p class="piece">&#9817;</p>
-        </div>
-        <div class="col-1  dark">
-            <p class="piece">&#9817;</p>
-        </div>
-        <div class="col-1 light">
-            <p class="piece">&#9817;</p>
-        </div>
-        <div class="col-1 dark">
-            <p class="piece">&#9817;</p>
-        </div>
-        <div class="col-1 light">
-            <p class="piece">&#9817;</p>
-        </div>
-        <div class="col-1 dark">
-            <p class="piece">&#9817;</p>
-        </div>
-        <div class="col-1 light">
-            <p class="piece">&#9817;</p>
-        </div>
-        <div class="col-1 dark">
-            <p class="piece">&#9817;</p>
-        </div>
-    </div>
-    <div class="row even">
-        <div class="col-1 offset-2 dark">
-            <p class="piece">&#9814;</p>
-        </div>
-        <div class="col-1 light">
-            <p class="piece">&#9816;</p>
-        </div>
-        <div class="col-1 dark">
-            <p class="piece">&#9815;</p>
-        </div>
-        <div class="col-1 light">
-            <p class="piece">&#9813;</p>
-        </div>
-        <div class="col-1 dark">
-            <p class="piece">&#9812;</p>
-        </div>
-        <div class="col-1 light">
-            <p class="piece">&#9815;</p>
-        </div>
-        <div class="col-1 dark">
-            <p class="piece">&#9816;</p>
-        </div>
-        <div class="col-1 light">
-            <p class="piece">&#9814;</p>
-        </div>
-    </div>
+
+<body>
     <br />
     <h1 class="centered">
-        <%= current_user.email %>
-    </h1>
-    </body>
+        <%= @game.name %>
+        <br />
+        <%= link_to 'Return Home', root_path, class: 'btn btn-success'%>
+        <br />
+        <br />
+        <div class="container">
+            <% 8.times do |row_index| %>
+            <div class="row no-gutters <%= (row_index + 1).even? ? " even" : "odd" %> ">
+                <% 8.times do |col_index| %>
+                <div class="col-1 
+                                <% if col_index == 0 %>
+                                    offset-2
+                                <% end %>
+                                <%= (col_index + row_index).even? ? " light" : "dark" %> "
+                    row="
+                    <%= row_index %>"
+                    col="
+                    <%= col_index %>"
+                    >
+                    <% if @game.state[row_index][col_index] %>
+                    <p class="piece">
+                        <%= @game.state[row_index][col_index].html_safe %>
+                    </p>
+                    <% end %>
+                </div>
+                <% end %>
+            </div>
+            <% end %>
+            <div>
+                <h1 class="centered">
+                    <%= current_user.email %>
+                </h1>
+</body>
