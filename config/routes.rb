@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :games, only: [:new, :create, :show]
 
-  get 'login', to: redirect('/auth/google_oauth2'), as: 'login'
+  get 'login', to: redirect('/users/auth/google_oauth2'), as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
@@ -14,6 +14,4 @@ Rails.application.routes.draw do
   get 'me', to: 'me#show', as: 'me'
 
   root to: "home#show"
-  
-  resources :games, only: %i[new create show]
 end
