@@ -130,6 +130,49 @@ a:hover {
 
 }
 
+.dark {
+    background-color: #C08155;
+    width: 28px;
+    height: 28px;
+
+
+    padding-left: 0%;
+    padding-right: 0%;
+    padding-bottom: 8.3%;
+
+
+}
+
+.light {
+    background-color: #F9D8AE;
+    width: 28px;
+    height: 28px;
+
+    padding-left: 0%;
+    padding-right: 0%;
+    padding-bottom: 8.3%;
+
+}
+
+.center-block {
+    background: #D8D8D8;
+    list-style: none;
+
+}
+
+#box-top {
+    padding-top: 5vh;
+}
+
+#stats {
+    list-style: none;
+    text-align: left;
+    padding-bottom: 5%;
+
+}
+
+
+
 @media (min-width: 400px) {
     .piece {
         font-size: 27px;
@@ -158,30 +201,4 @@ a:hover {
         font-size: 63px;
         line-height: 1.5
     }
-}
-
-
-
-.dark {
-    background-color: #C08155;
-    width: 28px;
-    height: 28px;
-
-
-    padding-left: 0%;
-    padding-right: 0%;
-    padding-bottom: 8.3%;
-
-
-}
-
-.light {
-    background-color: #F9D8AE;
-    width: 28px;
-    height: 28px;
-
-    padding-left: 0%;
-    padding-right: 0%;
-    padding-bottom: 8.3%;
-
 }

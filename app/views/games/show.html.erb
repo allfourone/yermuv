@@ -8,33 +8,33 @@
         <%= @game.name %>
         <br />
         <%= link_to 'Return Home', root_path, class: 'btn btn-success'%>
-        <br />
-        <br />
-        <div class="container">
-            <% 8.times do |row_index| %>
-            <div class="row no-gutters <%= (row_index + 1).even? ? " even" : "odd" %> ">
-                <% 8.times do |col_index| %>
-                <div class="col-1 
+    </h1>
+    <br />
+    <div class="container">
+        <% 8.times do |row_index| %>
+        <div class="row no-gutters <%= (row_index + 1).even? ? " even" : "odd" %> ">
+            <% 8.times do |col_index| %>
+            <div class="col-1 
                                 <% if col_index == 0 %>
                                     offset-2
                                 <% end %>
                                 <%= (col_index + row_index).even? ? " light" : "dark" %> "
-                    row="
-                    <%= row_index %>"
-                    col="
-                    <%= col_index %>"
-                    >
-                    <% if @game.state[row_index][col_index] %>
-                    <p class="piece">
-                        <%= @game.state[row_index][col_index].html_safe %>
-                    </p>
-                    <% end %>
-                </div>
+                row="
+                <%= row_index %>"
+                col="
+                <%= col_index %>"
+                >
+                <% if @game.state[row_index][col_index] %>
+                <p class="piece">
+                    <%= @game.state[row_index][col_index].html_safe %>
+                </p>
                 <% end %>
             </div>
             <% end %>
-            <div>
-                <h1 class="centered">
-                    <%= current_user.email %>
-                </h1>
+        </div>
+        <% end %>
+        <div>
+            <h3 class="centered">
+                <%= current_user.email %>
+            </h3>
 </body>
