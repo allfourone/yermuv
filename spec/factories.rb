@@ -2,11 +2,11 @@
 
 FactoryBot.define do
   factory :omni_user do
-    provider { "MyString" }
-    uid { "MyString" }
-    emailfirst_name { "MyString" }
-    last_name { "MyString" }
-    picture { "MyString" }
+    provider { 'MyString' }
+    uid { 'MyString' }
+    emailfirst_name { 'MyString' }
+    last_name { 'MyString' }
+    picture { 'MyString' }
   end
 
   factory :user do
