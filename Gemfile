@@ -40,7 +40,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'bootstrap', '~> 4.3.1'
 gem 'devise'
-gem "figaro"
+gem 'figaro'
 gem 'jquery-rails'
 gem 'omniauth-google-oauth2'
 
