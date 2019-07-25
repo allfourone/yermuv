@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   devise_for :users
   root 'static_pages#index'
 
-  resources :games, only: [:new, :create, :show]
+
+  resources :games, only: %i[new create show]
+  resources :users, only: :show
+
 
   get 'login', to: redirect('/auth/google_oauth2'), as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'

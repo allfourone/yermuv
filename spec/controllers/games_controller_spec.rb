@@ -29,11 +29,11 @@ RSpec.describe GamesController, type: :controller do
       post :create, params: {
         game: { name: 'Mike' }
       }
-      expect(response).to redirect_to root_path
 
       game = Game.last
       expect(game.name).to eq('Mike')
       expect(game.user).to eq(user)
+      expect(response).to redirect_to game_path(game)
     end
     it 'should properly deal with validation errors' do
       user = FactoryBot.create(:user)
