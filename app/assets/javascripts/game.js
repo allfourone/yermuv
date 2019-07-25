@@ -22,7 +22,7 @@ $(() => {
 			
 			case 9820:
 			case 9814:
-				return validateRook(piece, destination);
+				return validateRook(piece, destination, state);
 
 			// Implement cases for more pieces
 			// ASCII char code is the HTML minus the &# symbol
@@ -39,7 +39,7 @@ $(() => {
 	// jQueryUI drag and drop function
 	$('.col-1').droppable({
 		drop: (e, ui) => {
-			if (piece(ui.draggable, e.target)) {
+			if (piece(ui.draggable, e.target, state)) {
 				e.target.innerHTML = `<p class="piece">${ui.draggable.html()}</p>`;
 				ui.draggable.remove();
 				$('.piece').draggable({
