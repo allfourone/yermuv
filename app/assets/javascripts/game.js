@@ -40,11 +40,21 @@ $(() => {
 	$('.col-1').droppable({
 		drop: (e, ui) => {
 			if (piece(ui.draggable, e.target, state)) {
+				// Update the state
+				let destX = parseInt($(e.target).attr('col'));
+				let destY = parseInt($(e.target).attr('row'));
+				let originX = parseInt($(ui.draggable).parent().attr('col'));
+				let originY = parseInt($(ui.draggable).parent().attr('row'));
+				state[destY][destX] = `&#${ui.draggable.html().charCodeAt(0)}`;
+				state[originY][originX] = null;
+				// Update the DOM 
 				e.target.innerHTML = `<p class="piece">${ui.draggable.html()}</p>`;
+				// Delete the piece
 				ui.draggable.remove();
+				// Make all the pieces draggable again
 				$('.piece').draggable({
 					revert: "invalid"
-				});				
+				});
 			}	else {
 				return $(ui.draggable).draggable("option", "revert", true);
 			}		
