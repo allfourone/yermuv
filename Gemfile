@@ -41,6 +41,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap', '~> 4.3.1'
 gem 'devise'
 gem 'jquery-rails'
+gem 'omniauth-google-oauth2'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
