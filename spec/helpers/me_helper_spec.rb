@@ -13,5 +13,4 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe MeHelper, type: :helper do
- 
 end
