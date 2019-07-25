@@ -8,7 +8,7 @@ let validatePawn = (piece, destination) => {
 		
 		return pieceColor === destinationColor ? false : [pieceColor, destinationColor];
 	}	
-	
+
 	// Begin by checking if the square is occupied by same color
 	if (!squareOccupiedBySameColor(piece, destination)) {
 		return false;
@@ -72,6 +72,6 @@ let validatePawn = (piece, destination) => {
 	if ((empty && !capturable()) || (!empty && (Math.pow((originX - destX),2) == 1 && capturable()))) {
 		return true;
 	}
-
+	
 	return false;
 }
