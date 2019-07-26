@@ -5,7 +5,7 @@ let validateBishop = (piece, destination, state) => {
         let pieceColor = piece.html().charCodeAt(0) < 9818 ? "white" : "black";
         let destinationPiece = destination.innerText ? destination.innerText.charCodeAt(0) : false;
         let destinationColor = !destinationPiece ? "empty" : destinationPiece < 9818 ? "white" : "black";
-
+        console.log('bishop');
         return pieceColor === destinationColor ? false : [pieceColor, destinationColor];
     }
 
@@ -24,6 +24,7 @@ let validateBishop = (piece, destination, state) => {
         if (destinationColor !== 'empty' && pieceColor !== destinationColor) {
             return true;
         }
+
         return false;
     }
 
@@ -36,8 +37,9 @@ let validateBishop = (piece, destination, state) => {
     let destX = parseInt($(destination).attr('col'));
     let destY = parseInt($(destination).attr('row'));
 
-    // Check if moving in a straight line
-    if (originX !== destX && originY !== destY) {
+    // Make sure it is not moving in a straight line
+    if (originX === destX || originY === destY) {
+
         return false;
     }
 
@@ -49,36 +51,27 @@ let validateBishop = (piece, destination, state) => {
         let yDirection = originY - destY > 0 ? 1 : -1;
 
         // First check if moving in the Y direction
-        if (originX === destX) {
+        if (originX !== destX && originY !== destY) {
             // Check for every square, not counting origin or destination
             // since we check destination with empty & capturable()
             let i = originY - (1 * yDirection);
-            while (i !== destY) {
+            let j = originX - (1 * xDirection);
+            while (i !== destY || j !== destX) {
                 // check the state at the coordinates for a piece
-                if (state[i][originX]) {
+                if (state[i][j]) {
                     return true;
                 }
                 // Increment the counter based on the direction of travel
                 i -= 1 * yDirection;
+                j -= 1 * xDirection;
             }
-            // Check if moving in the X direction
-        } else if (originY === destY) {
-            // Check for every square, not counting origin or destination
-            // since we check destination with empty & capturable()
-            let i = originX - (1 * xDirection);
-            while (i !== destX) {
-                // check the state at the coordinates for a piece
-                if (state[originY][i]) {
-                    return true;
-                }
-                // Increment the counter based on the direction of travel
-                i -= 1 * xDirection;
-            }
+
         }
         return false;
     }
 
-    if ((empty || capturable()) && !blocked()) {
+    if ((empty || capturable()) && !blocked() && (originX !== destX && originY !== destY)) {
+
         return true;
     }
 
