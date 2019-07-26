@@ -1,4 +1,4 @@
-let validateBishop = (piece, destination, state) => {
+let validateKnight = (piece, destination, state) => {
     // Returns true if the squares are occupied by same color
     // Else, it returns an array with the piece colors (or empty) 
     let squareOccupiedBySameColor = (piece, destination) => {

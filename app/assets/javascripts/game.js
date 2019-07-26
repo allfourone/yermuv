@@ -23,10 +23,15 @@ $(() => {
             case 9820:
             case 9814:
                 return validateRook(piece, destination, state);
+                //if piece is a knight...
+            case 9816:
+            case 9822:
+                return validateKnight(piece, destination, state);
                 // If piece is a bishop..
             case 9815:
             case 9821:
                 return validateBishop(piece, destination, state);
+
 
                 // Implement cases for more pieces
                 // ASCII char code is the HTML minus the &# symbol
