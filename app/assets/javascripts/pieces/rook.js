@@ -5,7 +5,6 @@ let validateRook = (piece, destination, state) => {
         let pieceColor = piece.html().charCodeAt(0) < 9818 ? "white" : "black";
         let destinationPiece = destination.innerText ? destination.innerText.charCodeAt(0) : false;
         let destinationColor = !destinationPiece ? "empty" : destinationPiece < 9818 ? "white" : "black";
-        console.log('rook');
         return pieceColor === destinationColor ? false : [pieceColor, destinationColor];
     }
 
@@ -56,6 +55,7 @@ let validateRook = (piece, destination, state) => {
             while (i !== destY) {
                 // check the state at the coordinates for a piece
                 if (state[i][originX]) {
+
                     return true;
                 }
                 // Increment the counter based on the direction of travel
@@ -69,6 +69,7 @@ let validateRook = (piece, destination, state) => {
             while (i !== destX) {
                 // check the state at the coordinates for a piece
                 if (state[originY][i]) {
+
                     return true;
                 }
                 // Increment the counter based on the direction of travel

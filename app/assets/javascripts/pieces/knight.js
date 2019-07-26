@@ -5,7 +5,7 @@ let validateKnight = (piece, destination, state) => {
         let pieceColor = piece.html().charCodeAt(0) < 9818 ? "white" : "black";
         let destinationPiece = destination.innerText ? destination.innerText.charCodeAt(0) : false;
         let destinationColor = !destinationPiece ? "empty" : destinationPiece < 9818 ? "white" : "black";
-        console.log('bishop');
+
         return pieceColor === destinationColor ? false : [pieceColor, destinationColor];
     }
 
@@ -38,7 +38,7 @@ let validateKnight = (piece, destination, state) => {
     let destY = parseInt($(destination).attr('row'));
 
     // Make sure it is not moving in a straight line in either direction
-    if (originX === destX || originY === destY) {
+    if (destX === originX || destY === originY) {
 
         return false;
     }
@@ -52,14 +52,17 @@ let validateKnight = (piece, destination, state) => {
 
         // Make sure that it doesn't move vertically or horizontally so the x-column and y-column
         //will change with each movement
-        if (originX !== destX && originY !== destY) {
+        if ((destX === originX + 1 || destX === originX - 1) && (destY === originY + 2 || destY == originY - 2)) {
+
             // Check for every square, not counting origin or destination
             // since we check destination with empty & capturable()
             let i = originY - (1 * yDirection);
             let j = originX - (1 * xDirection);
-            while (i !== destY || j !== destX) {
+            while ((i === originY + 2 || i === originY - 2) && (j === originX + 1 || j == originX - 1)) {
+
                 // check the state at the coordinates for a piece
                 if (state[i][j]) {
+
                     return true;
                 }
                 // Increment the counter based on the direction of travel
@@ -71,7 +74,7 @@ let validateKnight = (piece, destination, state) => {
         return false;
     }
     //if the square is empty, capturable, not blocked & the piece moved diagonally
-    if ((empty || capturable()) && !blocked() && (originX !== destX && originY !== destY)) {
+    if ((empty || capturable()) && !blocked() && (destX === originX + 1 || destX === originX - 1) && (destY === originY + 2 || destY == originY - 2)) {
 
         return true;
     }
