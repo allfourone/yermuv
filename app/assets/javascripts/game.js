@@ -24,8 +24,9 @@ $(() => {
             case 9814:
                 return validateRook(piece, destination, state);
                 // If piece is a bishop..
-            case 9816:
-            case 9822:
+            case 9815:
+            case 9821:
+                return validateRook(piece, destination, state);
 
                 // Implement cases for more pieces
                 // ASCII char code is the HTML minus the &# symbol
