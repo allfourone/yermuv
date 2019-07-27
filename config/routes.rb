@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   root 'static_pages#index'
 
   resources :games, only: %i[new create show]
+  resources :users, only: :show
 
 end

@@ -1,5 +1,6 @@
 $(() => {
 
+
 	// This needs to be an AJAX request to pull from the DB and not hard-coded!
 	let state = [
 			['&#9820;','&#9822;','&#9821;','&#9819;','&#9818;','&#9821;','&#9822;','&#9820;'],
@@ -62,3 +63,4 @@ $(() => {
 	});
 
 });
+
