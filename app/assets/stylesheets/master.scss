@@ -1,146 +1,222 @@
 @import "bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Oswald|Roboto+Slab&display=swap');
+
+.centered {
+    text-align: center;
+}
+
+.hero {
+    background: image_url('hero.jpg') no-repeat top center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 370px;
+    box-shadow: 0px 3px 8px #2a2a2a;
+
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+    {
+    margin: 0;
+
+}
 
 h1 {
     text-align: center;
 }
 
-.no-gutters {
-    margin-right: 0;
-    margin-left: 0;
+.frosty {
 
-    >[class*="col-"] {
-        padding-right: 0;
-        padding-left: 0;
-    }
+    color: white;
+
 }
+
+.frosty h1 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 100;
+    text-shadow: rgba(0, 0, 0, 0.95) 1px 1px;
+}
+
+.frosty h2 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 200;
+    text-shadow: rgba(0, 0, 0, 0.95) 1px 1px;
+
+}
+
+.btn {
+    border-radius: 2px;
+    background: black;
+    border-color: white;
+    width: 180px;
+}
+
+.btn:hover {
+    background: black;
+    border-color: white;
+}
+
+.divider-style {
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+    width: 75%;
+}
+
+hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.img-responsive {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+
+
+}
+
+.team {
+    padding: 10px 10px 10px 10px;
+
+}
+
+.booyah-box {
+    -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
+    -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
+    box-shadow: 1px 1px 2px 0 #d0d0d0;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
+    padding-top: 10px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+}
+
+.git_link {
+    font-size: 10px;
+    text-align: center;
+}
+
+
+
+.booyah-box h2,
+.booyah-box h1 {
+    margin: 10px;
+}
+
+a {
+    color: #8C0000;
+}
+
+a:hover {
+    color: #636C72;
+}
+
 
 .piece {
+
+    font-size: 17px;
+    text-align: center;
+    line-height: 1.7;
     z-index: 100;
     cursor: pointer;
-}
-
-/* None since this is the default in bbotstrap 4 */
-@include media-breakpoint-up(xs) {
-    .piece {
-        font-size: 20px;
-        text-align: center;
-        margin-top: 1px
-    }
-
-    .dark {
-        background-color: #C08155;
-        width: 28px;
-        height: 28px;
-        font-size: 27px;
-    }
-
-    .light {
-        background-color: #F9D8AE;
-        width: 28px;
-        height: 28px;
-        font-size: 27px;
-    }
-}
-
-/*@media (min-width: 576px)  */
-@include media-breakpoint-up(sm) {
-    .piece {
-        font-size: 28px;
-        text-align: center;
-        margin-top: 1px
-    }
-
-    .dark {
-        background-color: #C08155;
-        width: 45px;
-        height: 45px;
-        font-size: 27px;
-
-    }
-
-    .light {
-        background-color: #F9D8AE;
-        width: 45px;
-        height: 45px;
-        font-size: 27px;
-
-    }
 
 }
 
-/* @media (min-width: 768px) */
-@include media-breakpoint-up(md) {
-    .piece {
-        font-size: 37px;
-        text-align: center;
-        margin-top: 2px
-    }
+.dark {
+    background-color: #C08155;
+    width: 28px;
+    height: 28px;
 
-    .dark {
-        background-color: #C08155;
-        width: 58px;
-        height: 58px;
-        font-size: 27px;
 
-    }
+    padding-left: 0%;
+    padding-right: 0%;
+    padding-bottom: 8.3%;
 
-    .light {
-        background-color: #F9D8AE;
-        width: 58px;
-        height: 58px;
-        font-size: 27px;
-
-    }
 
 }
 
-/*@media (min-width: 992px)*/
-@include media-breakpoint-up(lg) {
+.light {
+    background-color: #F9D8AE;
+    width: 28px;
+    height: 28px;
+
+    padding-left: 0%;
+    padding-right: 0%;
+    padding-bottom: 8.3%;
+
+}
+
+.center-block {
+    background: #D8D8D8;
+    list-style: none;
+
+}
+
+#box-top {
+    padding-top: 5vh;
+}
+
+#stats {
+    list-style: none;
+    text-align: left;
+    padding-bottom: 5%;
+
+}
+
+.input {
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+#title {
+    padding-top: 2%;
+    padding-bottom: 1%;
+}
+
+
+
+@media (min-width: 400px) {
     .piece {
-        font-size: 46px;
-        text-align: center;
-        margin-top: -1px
-    }
-
-    .dark {
-        background-color: #C08155;
-        width: 60px;
-        height: 60px;
         font-size: 27px;
-
-    }
-
-    .light {
-        background-color: #F9D8AE;
-        width: 60px;
-        height: 60px;
-        font-size: 27px;
-
     }
 }
 
-/*@media (min-width: 1200px)*/
-@include media-breakpoint-up(xl) {
+
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
     .piece {
-        font-size: 71px;
-        text-align: center;
-        margin-top: -5px
+        font-size: 38px;
     }
+}
 
-    .dark {
-        background-color: #C08155;
-        width: 93px;
-        height: 93px;
-        font-size: 27px;
-
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+    .piece {
+        font-size: 52px;
     }
+}
 
-    .light {
-        background-color: #F9D8AE;
-        width: 93px;
-        height: 93px;
-        font-size: 27px;
-
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+    .piece {
+        font-size: 63px;
+        line-height: 1.5
     }
-
 }

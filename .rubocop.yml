@@ -20,4 +20,5 @@ AllCops:
     - 'test/**/*'
     - 'config/**/*'
     - 'db/**/*'
-
+    - 'app/models/omni_user.rb'
+    - 'app/controllers/omniauth_callbacks_controller.rb'
