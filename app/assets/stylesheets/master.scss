@@ -1,6 +1,21 @@
 @import "bootstrap";
 @import url('https://fonts.googleapis.com/css?family=Oswald|Roboto+Slab&display=swap');
 
+html {
+    position: relative;
+    min-height: 100%;
+
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 100px;
+    min-height: 100%;
+
+
+
+}
+
 .centered {
     text-align: center;
 }
