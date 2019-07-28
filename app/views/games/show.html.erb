@@ -1,40 +1,44 @@
 <head>
-	<%= javascript_include_tag "game", "data-turbolinks-track" => "reload" %>
+    <%= javascript_include_tag "game", "data-turbolinks-track" => "reload" %>
 </head>
 
 <body>
-
-	<br />
-	<h1 class="centered">
-		<%= @game.name %>
-		<br />
-		<%= link_to 'Return Home', root_path, class: 'btn btn-success'%>
-	</h1>
-	<br />
-
-	<div class="container">
-		<% 8.times do |row_index| %>
-			<div class="row no-gutters <%= (row_index + 1).even? ? "even" : "odd" %> ">
-				<% 8.times do |col_index| %>
-					<div class="col-1 
+    <br />
+    <h1 class="centered">
+        <%= @game.name %>
+        <br />
+        <%= link_to 'Return Home', root_path, class: 'btn btn-success'%>
+    </h1>
+    <br />
+    <div class="container">
+        <% 8.times do |row_index| %>
+        <div class="row no-gutters <%= (row_index + 1).even? ? " even" : "odd" %> ">
+            <% 8.times do |col_index| %>
+            <div class="col-1 
 						<% if col_index == 0 %>
 							offset-2
 						<% end %>
-						<%= (col_index + row_index).even? ? "light" : "dark" %> "
-						row="<%= row_index %>"
-						col="<%= col_index %>"
-					>
-						<% if @game.state[row_index][col_index] %>
-							<p class="piece"><%= @game.state[row_index][col_index].html_safe %></p>
-						<% end %>
-					</div>
-				<% end %>
-			</div>
-		<% end %>
-	<div>
-	<h3 class="centered">
-		<% if current_user %>
-			<%= current_user.email %>
-		<% end %>
-	</h3>
+						<%= (col_index + row_index).even? ? " light" : "dark" %> "
+                row="
+                <%= row_index %>"
+                col="
+                <%= col_index %>"
+                >
+                <% if @game.state[row_index][col_index] %>
+                <p class="piece">
+                    <%= @game.state[row_index][col_index].html_safe %>
+                </p>
+                <% end %>
+            </div>
+            <% end %>
+        </div>
+        <% end %>
+    </div>
+    <div>
+        <h3 class="centered">
+            <% if current_user %>
+            <%= current_user.email %>
+            <% end %>
+        </h3>
+    </div>
 </body>

@@ -11,43 +11,39 @@
 </head>
 
 <body>
-
     <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <%= link_to 'Yermuv', root_path, class: 'navbar-brand' %>
-
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav mr-auto mt-2 mt-md-0">
                 <li class="nav-item">
                     <%= link_to root_path, class: 'nav-link' do %>
-                        <i class="fa fa-plus-circle"></i>
-                        Create Game
+                    <i class="fa fa-plus-circle"></i>
+                    Create Game
                     <% end %>
                 </li>
                 <li class="nav-item">
                     <%= link_to root_path, class: 'nav-link' do %>
-                        <i class="fa fa-plus-circle"></i>
-                        Games
+                    <i class="fa fa-plus-circle"></i>
+                    Games
                     <% end %>
                 </li>
             </ul>
             <ul class="navbar-nav">
                 <% if user_signed_in? %>
-                    <li class="nav-item">
-                        <%= link_to 'A user is signed in!', '#', class: 'nav-link' %>
-                    </li>
+                <li class="nav-item">
+                    <%= link_to 'A user is signed in!', '#', class: 'nav-link' %>
+                </li>
                 <% else %>
-                    <li class="nav-item">
-                        <%= link_to 'No user is signed in :(', '#', class: 'nav-link' %>
-                    </li>
+                <li class="nav-item">
+                    <%= link_to 'No user is signed in :(', '#', class: 'nav-link' %>
+                </li>
                 <% end %>
             </ul>
         </div>
     </nav>
-
-
     <% if notice.present? %>
     <p class="alert alert-info">
         <%= notice %>
@@ -59,18 +55,20 @@
     </p>
     <% end %>
     <%= yield %>
-    <div class="container" id="footer">
-        <div class="row">
-            <div class="col-3 offset-3 align-items-center">
-                <%= link_to image_tag "GitHub-Mark-120px-plus.png", style: "height:10%;width:auto;", class: "mx-auto d-block"  %>
-                <p class="git_link"><a href="https://github.com/allfourone/yermuv"> Link to code</a></p>
-            </div>
-            <div class="col-3 align-items-center">
-                <%= link_to image_tag "heroku.png", style: "height:10%;width:auto;", class: "mx-auto d-block" %>
-                <p class="git_link"><a href="https://yermuv.herokuapp.com/">Play chess!</a></p>
+    <footer class="panel-footer navbar-inverse navbar-fixed-bottom">
+        
+            <div class="row foot">
+                <div class="col-3 offset-3 align-items-center">
+                    <%= link_to image_tag "GitHub-Mark-120px-plus.png", style: "height:50%;width:auto;", class: "mx-auto d-block"  %>
+                    <p class="git_link"><a href="https://github.com/allfourone/yermuv"> Link to code</a></p>
+                </div>
+                <div class="col-3 align-items-center">
+                    <%= link_to image_tag "heroku.png", style: "height:50%;width:auto;", class: "mx-auto d-block" %>
+                    <p class="git_link"><a href="https://yermuv.herokuapp.com/">Play chess!</a></p>
+                </div>
             </div>
         </div>
-    </div>
+    </footer>
 </body>
 
 </html>
