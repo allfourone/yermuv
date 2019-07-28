@@ -1,4 +1,4 @@
-let validatePawn = (piece, destination) => {
+let validatePawn = (piece, destination, state) => {
 
     // Returns true if the squares are occupied by same color
     // Else, it returns an array with the piece colors (or empty) 
@@ -48,13 +48,13 @@ let validatePawn = (piece, destination) => {
     // Check if piece has moved yet, and allow either 1 or 2 squares
     // Works for both black and white pawns
     if (direction > 0) {
-        if (originY == 6 && (destY == 5 || destY == 4)) {
+        if (originY == 6 && ((destY == 5 && !state[5][originX]) || (destY == 4 && !state[5][originX] && !state[4][originX])) ) {
             return true;
         } else if (originY == 6 && destY < 4) {
             return false;
         }
     } else if (direction < 0) {
-        if (originY == 1 && (destY == 2 || destY == 3)) {
+        if (originY == 1 && ((destY == 2 && !state[2][originX]) || (destY == 3 && !state[2][originX] && !state[3][originX])) ) {
             return true;
         } else if (originY == 1 && destY > 3) {
             return false;

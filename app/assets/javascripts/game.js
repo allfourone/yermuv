@@ -19,7 +19,7 @@ $(() => {
             // If piece is a pawn...
             case 9817:
             case 9823:
-                return validatePawn(piece, destination);
+                return validatePawn(piece, destination, state);
                 // If piece is a rook...
             case 9820:
             case 9814:
