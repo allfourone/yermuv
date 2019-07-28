@@ -46,6 +46,7 @@ let validatePawn = (piece, destination, state, enPassant) => {
             $('.col-1[row=' + enPassant[1] + '][col=' + enPassant[0] + ']').empty();
             return true;
         } else if (direction < 0 && Math.abs(originX - enPassant[0]) == 1 && destX == enPassant[0] && destY - 1 == enPassant[1]) {
+            $('.col-1[row=' + enPassant[1] + '][col=' + enPassant[0] + ']').empty();
             return true;
         }
     }
