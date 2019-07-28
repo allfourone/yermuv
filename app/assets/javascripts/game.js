@@ -1,4 +1,3 @@
-
 $(() => {
 
     // This needs to be an AJAX request to pull from the DB and not hard-coded!
@@ -37,7 +36,10 @@ $(() => {
             case 9815:
             case 9821:
                 return validateBishop(piece, destination, state);
-
+                //if piece is a king..
+            case 9812:
+            case 9818:
+                return validateKing(piece, destination, state);
 
                 // Implement cases for more pieces
                 // ASCII char code is the HTML minus the &# symbol
