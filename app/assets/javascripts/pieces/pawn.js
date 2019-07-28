@@ -1,4 +1,4 @@
-let validatePawn = (piece, destination, state) => {
+let validatePawn = (piece, destination, state, enPassant) => {
 
     // Returns true if the squares are occupied by same color
     // Else, it returns an array with the piece colors (or empty) 
@@ -39,6 +39,16 @@ let validatePawn = (piece, destination, state) => {
 
     // Set positive direction for white, negative direction for black
     let direction = pieceColor === "white" ? 1 : -1;
+
+    // Allow en passant
+    if (enPassant.length > 0) {
+        if (direction > 0 && Math.abs(originX - enPassant[0]) == 1 && destX == enPassant[0] && destY + 1 == enPassant[1]) {
+            $('.col-1[row=' + enPassant[1] + '][col=' + enPassant[0] + ']').empty();
+            return true;
+        } else if (direction < 0 && Math.abs(originX - enPassant[0]) == 1 && destX == enPassant[0] && destY - 1 == enPassant[1]) {
+            return true;
+        }
+    }
 
     // Only allow diagonal movement if a piece is capturable
     if (originX !== destX && !capturable()) {
