@@ -25,11 +25,11 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
-<<<<<<< HEAD
+
 
 Gemfile.lock
-=======
->>>>>>> 6b639be258e6cccc6288f2412d165b697fac6a56
+
 
 # Ignore application configuration
 /config/application.yml
+

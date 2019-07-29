@@ -1,112 +1,96 @@
 $(() => {
 
-	// This needs to be an AJAX request to pull from the DB and not hard-coded!
-	var state = [
-			['&#9823;','&#9822;','&#9821;','&#9819;','&#9818;','&#9821;','&#9822;','&#9823;'],
-			['&#9823;','&#9823;','&#9823;','&#9823;','&#9823;','&#9823;','&#9823;','&#9823;'],
-			[null,null,null,null,null,null,null,null],
-			[null,null,null,null,null,null,null,null],
-			[null,null,null,null,null,null,null,null],
-			[null,null,null,null,null,null,null,null],
-			['&#9817;','&#9817;','&#9817;','&#9817;','&#9817;','&#9817;','&#9817;','&#9817;'],
-			['&#9814;','&#9816;','&#9815;','&#9813;','&#9812;','&#9815;','&#9816;','&#9814;']	
-	];
+    // This needs to be an AJAX request to pull from the DB and not hard-coded!
+    let state = [
+        ['&#9820;', '&#9822;', '&#9821;', '&#9819;', '&#9818;', '&#9821;', '&#9822;', '&#9820;'],
+        ['&#9823;', '&#9823;', '&#9823;', '&#9823;', '&#9823;', '&#9823;', '&#9823;', '&#9823;'],
+        [null, null, null, null, null, null, null, null],
+        [null, null, null, null, null, null, null, null],
+        [null, null, null, null, null, null, null, null],
+        [null, null, null, null, null, null, null, null],
+        ['&#9817;', '&#9817;', '&#9817;', '&#9817;', '&#9817;', '&#9817;', '&#9817;', '&#9817;'],
+        ['&#9814;', '&#9816;', '&#9815;', '&#9813;', '&#9812;', '&#9815;', '&#9816;', '&#9814;']
+    ];
 
-	$('.piece').draggable({ 
-		revert: "invalid"
-	});
+    let enPassant = [];
 
-	// Returns true if the squares are occupied by same color
-	// Else, it returns an array with the piece colors (or empty) 
-	let squareOccupiedBySameColor = (piece, destination) => {
-		let pieceColor = piece.html().charCodeAt(0) < 9818 ? "white" : "black";
-		let destinationPiece = destination.innerText ? destination.innerText.charCodeAt(0) : false;
-		let destinationColor = !destinationPiece ? "empty" : destinationPiece < 9818 ? "white" : "black";
-		
-		return pieceColor === destinationColor ? false : [pieceColor, destinationColor];
-	}
+    let piece = (piece, destination) => {
+        switch (piece.html().charCodeAt(0)) {
 
-	let validatePawn = (piece, destination) => {
-		// Begin by checking if the square is occupied by same color
-		if (!squareOccupiedBySameColor(piece, destination)) {
-			return false;
-		} 
-		
-		// Get the colors of pieces occupying the squares
-		let colors = squareOccupiedBySameColor(piece, destination)
-		let pieceColor = colors[0];
-		let destinationColor = colors[1];
+            // If piece is a pawn...
+            case 9817:
+            case 9823:
+                return validatePawn(piece, destination, state, enPassant);
 
-		// Is only capturable if the destination is not empty and the colors are different
-		let capturable = () => {
-			if (destinationColor !== 'empty' && pieceColor !== destinationColor) {
-				return true;
-			}
-			return false;
-		}
+            // If piece is a rook...
+            case 9820:
+            case 9814:
+                return validateRook(piece, destination, state);
 
-		// Calc if the destination is empty
-		let empty = destinationColor === 'empty';
+            //if piece is a knight...
+            case 9816:
+            case 9822:
+                return validateKnight(piece, destination, state);
 
-		// Calculate origin & destination coords given the HTML nodes
-		let originX = parseInt($(piece).parent().attr('col'));
-		let originY = parseInt($(piece).parent().attr('row'));
-		let destX = parseInt($(destination).attr('col'));
-		let destY = parseInt($(destination).attr('row'));
+            // If piece is a bishop..
+            case 9815:
+            case 9821:
+                return validateBishop(piece, destination, state);
+                //if piece is a king..
+            case 9812:
+            case 9818:
+                return validateKing(piece, destination, state);
 
-		// Set positive direction for white, negative direction for black
-		let direction = pieceColor === "white" ? 1 : -1;
+                // Implement cases for more pieces
+                // ASCII char code is the HTML minus the &# symbol
 
-		// Only allow diagonal movement if a piece is capturable
-		if (originX !== destX && !capturable()) {
-			return false;
-		}
+            default:
+                return false;
+        }
+    }
 
-		// Check if piece has moved yet, and allow either 1 or 2 squares
-		// Works for both black and white pawns
-		if (direction > 0) {
-			if (originY == 6 && (destY == 5 || destY == 4)) {
-				return true;		
-			} else if (originY == 6 && destY < 4) {
-				return false;
-			}
-		} else if (direction < 0) {
-			if (originY == 1 && (destY == 2 || destY == 3)) {
-				return true;		
-			} else if (originY == 1 && destY > 3) {
-				return false;
-			}
-		}		
+    $('.piece').draggable({
+        revert: "invalid"
+    });
 
-		// Check if pawn moving forward based on direction 
-		if (originY - (1 * direction) !== destY) {
-			return false;
-		}
-		
-		// If square is empty, move forward in straight line
-		// If square is not empty, stop movement
-		// If moving diagonally, check if the distance between rows is 1
-		// If it is, and the piece is of the opposite color, allow movement
-		if ((empty && !capturable()) || (!empty && (Math.pow((originX - destX),2) == 1 && capturable()))) {
-			return true;
-		}
+    // jQueryUI drag and drop function
+    $('.col-1').droppable({
+        drop: (e, ui) => {
+            if (piece(ui.draggable, e.target, state)) {
 
-		return false;
-	}
+                // Update the state
 
-	// jQueryUI drag and drop function
-	$('.col-1').droppable({
-		drop: (e, ui) => {
-			if (validatePawn(ui.draggable, e.target)) {
-				e.target.innerHTML = `<p class="piece">${ui.draggable.html()}</p>`;
-				ui.draggable.remove();
-				$('.piece').draggable({
-					revert: "invalid"
-				});				
-			}	else {
-				return $(ui.draggable).draggable("option", "revert", true);
-			}		
-		}
-	});
+                // Get rid of old en passant value
+                if (enPassant.length > 0) {
+                  enPassant = [];
+                }
+
+                let destX = parseInt($(e.target).attr('col'));
+                let destY = parseInt($(e.target).attr('row'));
+                let originX = parseInt($(ui.draggable).parent().attr('col'));
+                let originY = parseInt($(ui.draggable).parent().attr('row'));
+                state[destY][destX] = `&#${ui.draggable.html().charCodeAt(0)}`;
+                state[originY][originX] = null;
+
+                // Check if en passant is possible
+                if (ui.draggable.html().charCodeAt(0) == 9817 || ui.draggable.html().charCodeAt(0) == 9823) {
+                  if (Math.abs(destY - originY) > 1) {
+                    enPassant = [destX, destY];
+                  }
+                }
+
+                // Update the DOM 
+                e.target.innerHTML = `<p class="piece">${ui.draggable.html()}</p>`;
+                // Delete the piece
+                ui.draggable.remove();
+                // Make all the pieces draggable again
+                $('.piece').draggable({
+                    revert: "invalid"
+                });
+            } else {
+                return $(ui.draggable).draggable("option", "revert", true);
+            }
+        }
+    });
 
 });
