@@ -15,24 +15,24 @@ $(() => {
     let enPassant = [];
 
     let piece = (piece, destination) => {
-        switch (piece.html().charCodeAt(0)) {
+        switch (piece.html().replace(/\s/g, '').charCodeAt(0)) {
 
             // If piece is a pawn...
             case 9817:
             case 9823:
                 return validatePawn(piece, destination, state, enPassant);
 
-            // If piece is a rook...
+                // If piece is a rook...
             case 9820:
             case 9814:
                 return validateRook(piece, destination, state);
 
-            //if piece is a knight...
+                //if piece is a knight...
             case 9816:
             case 9822:
                 return validateKnight(piece, destination, state);
 
-            // If piece is a bishop..
+                // If piece is a bishop..
             case 9815:
             case 9821:
                 return validateBishop(piece, destination, state);
@@ -62,7 +62,7 @@ $(() => {
 
                 // Get rid of old en passant value
                 if (enPassant.length > 0) {
-                  enPassant = [];
+                    enPassant = [];
                 }
 
                 let destX = parseInt($(e.target).attr('col'));
@@ -74,9 +74,9 @@ $(() => {
 
                 // Check if en passant is possible
                 if (ui.draggable.html().charCodeAt(0) == 9817 || ui.draggable.html().charCodeAt(0) == 9823) {
-                  if (Math.abs(destY - originY) > 1) {
-                    enPassant = [destX, destY];
-                  }
+                    if (Math.abs(destY - originY) > 1) {
+                        enPassant = [destX, destY];
+                    }
                 }
 
                 // Update the DOM 
