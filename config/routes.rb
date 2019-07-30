@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
   root 'static_pages#index'
 
-  resources :games, only: %i[new create show]
+  resources :games, only: %i[new create show edit update]
   resources :users, only: :show
 
   root to: "home#show"
