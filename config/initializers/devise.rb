@@ -267,6 +267,7 @@ Devise.setup do |config|
           prompt: 'select_account',
           image_aspect_ratio: 'square',
           image_size: 50,
+          skip_jwt: true
         }
 
   # ==> Warden configuration

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_25_210506) do
+ActiveRecord::Schema.define(version: 2019_07_26_143618) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,16 +30,6 @@ ActiveRecord::Schema.define(version: 2019_07_25_210506) do
     t.text "en_passant", default: [], array: true
     t.text "castling", default: ["t", "t"], array: true
     t.index ["user_id"], name: "index_games_on_user_id"
-  end
-
-  create_table "omni_users", force: :cascade do |t|
-    t.string "provider"
-    t.string "uid"
-    t.string "emailfirst_name"
-    t.string "last_name"
-    t.string "picture"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
