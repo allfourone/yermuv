@@ -40,6 +40,10 @@ $(() => {
             case 9812:
             case 9818:
                 return validateKing(piece, destination, state);
+                //if piece is a queen..
+            case
+            case
+                return validateQueen(piece, destination, state);
 
                 // Implement cases for more pieces
                 // ASCII char code is the HTML minus the &# symbol
