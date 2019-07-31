@@ -41,8 +41,8 @@ $(() => {
             case 9818:
                 return validateKing(piece, destination, state);
                 //if piece is a queen..
-            case
-            case
+            case 9813:
+            case 9819:
                 return validateQueen(piece, destination, state);
 
                 // Implement cases for more pieces
