@@ -31,7 +31,6 @@ Devise.setup do |config|
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
   require 'devise/orm/active_record'
-  config.omniauth :google_oauth2, ENV["GOOGLE_ID"], ENV["GOOGLE_SECRET"], skip_jwt: true
 
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
@@ -261,6 +260,14 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
+  config.omniauth :google_oauth2, ENV['GOOGLE_CLIENT_ID'], ENV['GOOGLE_CLIENT_SECRET'],
+        {
+          scope: 'userinfo.email, userinfo.profile, http://gdata.youtube.com',
+          prompt: 'select_account',
+          image_aspect_ratio: 'square',
+          image_size: 50,
+          skip_jwt: true
+        }
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
