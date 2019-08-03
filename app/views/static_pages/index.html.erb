@@ -24,33 +24,140 @@
     </div>
 </div>
 <hr class="divider-style">
-<div>...</div>
+<div id="accordion" class="container">
+    <div class="card centered">
+        <div class="card-header" id="headingOne">
+            <h5 class="mb-0">
+                <button class="btn btn-link " data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    How Did We Communicate?
+                </button>
+            </h5>
+        </div>
+        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-md-4 col-sm-6 col-12 ">
+                        <a href="https://trello.com/en-US" class="services">
+                            <%= image_tag "trello.png", alt: "Trello", class: "img-responsive trello" %>
+                            <p> Trello was used for organizing responsibilities<br>
+                            </p>
+                        </a>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-12">
+                        <a href="https://zoom.us/" class="services">
+                            <%= image_tag "zoom.jpeg", alt: "Slack", class: "img-responsive zoom" %>
+                            <p> We held our virtual meetings through Zoom.<br>
+                            </p>
+                        </a>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-12">
+                        <a href="https://slack.com/" class="services">
+                            <%= image_tag "slack.png", alt: "Slack", class: "img-responsive slack" %>
+                            <p> Slack was used to communicate via keyboard throughout the day.<br>
+                            </p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="card centered">
+        <div class="card-header" id="headingtwo">
+            <h5 class="mb-0">
+                <button class="btn btn-link " data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                    What Tools Did We Implement?
+                </button>
+            </h5>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-md-4 col-sm-6 col-12 ">
+                        <a href="https://rspec.info/" class="services">
+                            <%= image_tag "rspec.png", alt: "Rspec", class: "img-responsive trello" %>
+                            <p> We chose Rspec for our test-driven develpment.<br>
+                            </p>
+                        </a>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-12">
+                        <a href="https://travis-ci.org/" class="services">
+                            <%= image_tag "travis_ci.png", alt: "Travis CI", class: "img-responsive travis" %>
+                            <p> We used Travis CI for our continuous integration.<br>
+                            </p>
+                        </a>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-12">
+                        <a href="https://rubocop.readthedocs.io/en/stable/" class="services">
+                            <%= image_tag "rubocop.png", alt: "Rubocop", class: "img-responsive rubocop" %>
+                            <p> RuboCop was our static code analyzer and code formatter.<br>
+                            </p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="card centered">
+        <div class="card-header" id="headingThree">
+            <h5 class="mb-0">
+                <button class="btn btn-link " data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                    What Tools Did We Implement?
+                </button>
+            </h5>
+        </div>
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-md-4 col-sm-6 col-12 ">
+                        <%= image_tag "rspec.png", alt: "Rspec", class: "img-responsive trello" %>
+                        <p> Rspec<br>
+                            <a href="#">@BigPhatNerd</a></p>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-12">
+                        <%= image_tag "travis_ci.png", alt: "Travis CI", class: "img-responsive zoom" %>
+                        <p> Travis CI.<br>
+                            <a href="#">@BigPhatNerd</a></p>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-12">
+                        <%= image_tag "rubocop.png", alt: "Rubocop", class: "img-responsive slack" %>
+                        <p> Slack was used to communicate via keyboard throughout the day.<br>
+                            <a href="#">@BigPhatNerd</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <hr class="divider-style">
 <h1> Our Team</h1>
 <div class="container">
     <div class="row team text-center ">
         <div class="col-lg-3 col-md-6 col-6">
-            <%= image_tag "me.jpg", alt: "Wilson's Profile Pic", class: "img-responsive" %>
+            <%= image_tag "me.jpg", alt: "Wilson's Profile Pic", class: "img-responsive img_round" %>
             <p> Wilson Horrell<br>
                 <a href="#">@BigPhatNerd</a></p>
         </div>
         <div class="col-lg-3 col-md-6 col-6">
-            <%= image_tag "me.jpg", alt: "Tyler's Profile Pic", class: "img-responsive" %>
+            <%= image_tag "me.jpg", alt: "Tyler's Profile Pic", class: "img-responsive img_round" %>
             <p>Tyler Porter<br>
                 <a href="#">twitterhandle</a></p>
         </div>
         <div class="col-lg-3 col-md-6 col-6">
-            <%= image_tag "me.jpg", alt: "Jason's Profile Pic", class: "img-responsive" %>
+            <%= image_tag "me.jpg", alt: "Jason's Profile Pic", class: "img-responsive img_round" %>
             <p>Jason Miley<br>
                 <a href="#"> twitterhandle</a></p>
         </div>
         <div class="col-lg-3 col-md-6 col-6">
-            <%= image_tag "me.jpg", alt: "Drew's Profile Pic", class: "img-responsive" %>
+            <%= image_tag "me.jpg", alt: "Drew's Profile Pic", class: "img-responsive img_round" %>
             <p> Drew Myers<br>
                 <a href="#">twitterhandle</a></p>
         </div>
         <div class="col-lg-3 col-md-6 col-12 git">
-            <%= image_tag "me.jpg", alt: "Josh's Profile Pic", class: "img-responsive" %>
+            <%= image_tag "me.jpg", alt: "Josh's Profile Pic", class: "img-responsive img_round" %>
             <p> Josh Wamble<br>
                 <a href="#">twitterhandle</a></p>
         </div>
