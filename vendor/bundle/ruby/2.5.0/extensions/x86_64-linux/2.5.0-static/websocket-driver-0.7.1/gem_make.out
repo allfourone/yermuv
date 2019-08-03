@@ -1,0 +1,15 @@
+current directory: /vagrant/src/yermuv/vendor/bundle/ruby/2.5.0/gems/websocket-driver-0.7.1/ext/websocket-driver
+/home/vagrant/.rbenv/versions/2.5.3/bin/ruby -I /home/vagrant/.rbenv/versions/2.5.3/lib/ruby/site_ruby/2.5.0 -r ./siteconf20190803-8829-188ade.rb extconf.rb
+creating Makefile
+
+current directory: /vagrant/src/yermuv/vendor/bundle/ruby/2.5.0/gems/websocket-driver-0.7.1/ext/websocket-driver
+make "DESTDIR=" clean
+
+current directory: /vagrant/src/yermuv/vendor/bundle/ruby/2.5.0/gems/websocket-driver-0.7.1/ext/websocket-driver
+make "DESTDIR="
+compiling websocket_mask.c
+linking shared-object websocket_mask.so
+
+current directory: /vagrant/src/yermuv/vendor/bundle/ruby/2.5.0/gems/websocket-driver-0.7.1/ext/websocket-driver
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 websocket_mask.so ./.gem.20190803-8829-1wp8552

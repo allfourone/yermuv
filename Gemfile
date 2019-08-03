@@ -81,6 +81,7 @@ end
 
 gem 'jquery-ui-rails'
 gem 'prism-rails'
+gem 'rake'
 gem 'rspec'
 gem 'rspec-rails'
 gem 'rubocop'
