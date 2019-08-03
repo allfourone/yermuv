@@ -1,11 +1,15 @@
 @import "bootstrap";
 @import url('https://fonts.googleapis.com/css?family=Oswald|Roboto+Slab&display=swap');
 
+
+
 html {
     position: relative;
     min-height: 100%;
 
 }
+
+
 
 body {
     /* Margin bottom by footer height */
@@ -71,6 +75,14 @@ h1 {
 .btn:hover {
     background: black;
     border-color: white;
+}
+
+.code_buttons {
+    border-radius: 2px;
+    background: black;
+    border-color: white;
+    width: 180px;
+    height: 60px;
 }
 
 .divider-style {
@@ -236,6 +248,7 @@ a:hover {
 
 .rubocop {
     margin-top: 20px;
+    margin-bottom: 32px;
 }
 
 .services {
@@ -244,6 +257,18 @@ a:hover {
 
 .services:hover {
     color: grey;
+}
+
+.ruby {
+    margin-top: 20px;
+}
+
+.rails {
+    margin-top: 20px;
+}
+
+.htmlcssjs {
+    margin-top: 20px;
 }
 
 
@@ -261,6 +286,8 @@ a:hover {
         margin-top: 20px;
         margin-bottom: 30px;
     }
+
+
 
     .btn-link {
         width: 458px;

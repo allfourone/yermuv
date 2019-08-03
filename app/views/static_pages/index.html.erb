@@ -105,7 +105,7 @@
         <div class="card-header" id="headingThree">
             <h5 class="mb-0">
                 <button class="btn btn-link " data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-                    What Tools Did We Implement?
+                    What Languages Did We Use?
                 </button>
             </h5>
         </div>
@@ -113,21 +113,81 @@
             <div class="container">
                 <div class="row text-center">
                     <div class="col-md-4 col-sm-6 col-12 ">
-                        <%= image_tag "rspec.png", alt: "Rspec", class: "img-responsive trello" %>
-                        <p> Rspec<br>
-                            <a href="#">@BigPhatNerd</a></p>
+                        <a href="https://www.ruby-lang.org/en/" class="services">
+                            <%= image_tag "ruby.png", alt: "ruby", class: "img-responsive ruby" %>
+                            <p> Ruby<br>
+                            </p>
+                        </a>
                     </div>
                     <div class="col-md-4 col-sm-6 col-12">
-                        <%= image_tag "travis_ci.png", alt: "Travis CI", class: "img-responsive zoom" %>
-                        <p> Travis CI.<br>
-                            <a href="#">@BigPhatNerd</a></p>
+                        <a href="https://www.udemy.com/the-web-development-course-html5-css3-javascript/" class="services">
+                            <%= image_tag "htmlcssjs.jpeg", alt: "HTML, Javascript, CSS", class: "img-responsive htmlcssjs" %>
+                            <p> HTML5, CSS3, Javascript<br>
+                            </p>
+                        </a>
                     </div>
                     <div class="col-md-4 col-sm-6 col-12">
-                        <%= image_tag "rubocop.png", alt: "Rubocop", class: "img-responsive slack" %>
-                        <p> Slack was used to communicate via keyboard throughout the day.<br>
-                            <a href="#">@BigPhatNerd</a></p>
+                        <a href="https://rubyonrails.org/" class="services">
+                            <%= image_tag "rails.png", alt: "Rails", class: "img-responsive rails" %>
+                            <p> Ruby on Rails<br>
+                            </p>
+                        </a>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<hr class="divider-style">
+<h1> Let's See Some Code</h1>
+<br />
+<div class="container">
+    <div class="row">
+        <p>
+            <div class="col-12 col-sm-4">
+                <a class="btn btn-primary code_buttons" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Game.js</a>
+            </div>
+            <div class="col-12 col-sm-4">
+                <a class="btn btn-primary code_buttons" data-toggle="collapse" href="#multiCollapseExample2" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Pawn.js</a>
+            </div>
+            <div class="col-12 col-sm-4">
+                <a class="btn btn-primary code_buttons" data-toggle="collapse" href="#multiCollapseExample3" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Games Controller</a>
+            </div>
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12 col-sm-12">
+        <div class="collapse multi-collapse" id="multiCollapseExample1">
+            <div class="card card-body">
+                <pre><code class="language-ruby">
+  #displays the instructions
+puts "Enter degrees in Celsius: "
+#takes the input
+celcius = gets.chomp
+#defines the method
+def converter(celcius)
+    fahrenheight = (celcius.to_f * (9.0/5.0)) + 32.0
+    return fahrenheight
+end
+answer = converter(celcius)
+#calls and displays the function using the celsius argument that the user passed into it
+puts answer</code></pre>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-sm-12">
+        <div class="collapse multi-collapse" id="multiCollapseExample2">
+            <div class="card card-body">
+                <h2>Pawn.js code</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-sm-12">
+        <div class="collapse multi-collapse" id="multiCollapseExample3">
+            <div class="card card-body">
+                <h2>Games controller</h2>
             </div>
         </div>
     </div>
