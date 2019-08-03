@@ -195,6 +195,8 @@ a:hover {
 
 }
 
+
+
 #box-top {
     padding-top: 5vh;
 }
@@ -242,12 +244,31 @@ a:hover {
     color: black;
     border-width: 1px;
     border-color: black;
-
 }
 
-.btn-success:active .btn-success:focus {
-    color: none;
+.btn.btn-custom {
+    background: #F7F7F7;
+    text-decoration: none;
+    color: black;
+    border-width: 1px;
+    border-color: black;
 }
+
+.btn.focus,
+.btn:focus {
+    outline: 0;
+    box-shadow: none !important;
+}
+
+.btn.active,
+.btn:active {
+    background-color: grey !important;
+    outline: 0;
+}
+
+
+
+
 
 
 
@@ -281,8 +302,24 @@ a:hover {
     margin-top: 20px;
 }
 
+#lets {
+    font-size: 22px;
+}
+
+#team {
+    font-size: 26px
+}
+
 
 @media (min-width: 400px) {
+    #lets {
+        font-size: 36px;
+    }
+
+    #lets {
+        font-size: 44px;
+    }
+
     .piece {
         font-size: 27px;
     }
