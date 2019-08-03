@@ -80,6 +80,7 @@ group :development, :test do
 end
 
 gem 'jquery-ui-rails'
+gem 'prism-rails'
 gem 'rspec'
 gem 'rspec-rails'
 gem 'rubocop'

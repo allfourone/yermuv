@@ -19,6 +19,7 @@ body {
 
 .centered {
     text-align: center;
+
 }
 
 .hero {
@@ -77,13 +78,7 @@ h1 {
     border-color: white;
 }
 
-.code_buttons {
-    border-radius: 2px;
-    background: black;
-    border-color: white;
-    width: 180px;
-    height: 60px;
-}
+
 
 .divider-style {
     border: 0;
@@ -240,6 +235,21 @@ a:hover {
     border-width: 1px;
     border-color: black;
 }
+
+.btn-success:hover {
+    background: #F7F7F7;
+    text-decoration: none;
+    color: black;
+    border-width: 1px;
+    border-color: black;
+
+}
+
+.btn-success:active .btn-success:focus {
+    color: none;
+}
+
+
 
 .travis {
     margin-top: 20px;

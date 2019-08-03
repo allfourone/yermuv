@@ -145,14 +145,14 @@
 <div class="container">
     <div class="row">
         <p>
-            <div class="col-12 col-sm-4">
-                <a class="btn btn-primary code_buttons" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Game.js</a>
+            <div class="col-12 col-sm-4 code ">
+                <a class="btn btn-success code_buttons" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Game.js</a>
             </div>
-            <div class="col-12 col-sm-4">
-                <a class="btn btn-primary code_buttons" data-toggle="collapse" href="#multiCollapseExample2" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Pawn.js</a>
+            <div class="col-12 col-sm-4 code">
+                <a class="btn btn-success code_buttons" data-toggle="collapse" href="#multiCollapseExample2" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Pawn.js</a>
             </div>
-            <div class="col-12 col-sm-4">
-                <a class="btn btn-primary code_buttons" data-toggle="collapse" href="#multiCollapseExample3" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Games Controller</a>
+            <div class="col-12 col-sm-4 code">
+                <a class="btn btn-success code_buttons" data-toggle="collapse" href="#multiCollapseExample3" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Games Controller</a>
             </div>
         </p>
     </div>
@@ -161,33 +161,239 @@
     <div class="col-12 col-sm-12">
         <div class="collapse multi-collapse" id="multiCollapseExample1">
             <div class="card card-body">
-                <pre><code class="language-ruby">
-  #displays the instructions
-puts "Enter degrees in Celsius: "
-#takes the input
-celcius = gets.chomp
-#defines the method
-def converter(celcius)
-    fahrenheight = (celcius.to_f * (9.0/5.0)) + 32.0
-    return fahrenheight
-end
-answer = converter(celcius)
-#calls and displays the function using the celsius argument that the user passed into it
-puts answer</code></pre>
+                <pre><code class="language-javascript">
+  $(() => {
+
+    // This needs to be an AJAX request to pull from the DB and not hard-coded!
+    let state = [
+        ['&#9820;', '&#9822;', '&#9821;', '&#9819;', '&#9818;', '&#9821;', '&#9822;', '&#9820;'],
+        ['&#9823;', '&#9823;', '&#9823;', '&#9823;', '&#9823;', '&#9823;', '&#9823;', '&#9823;'],
+        [null, null, null, null, null, null, null, null],
+        [null, null, null, null, null, null, null, null],
+        [null, null, null, null, null, null, null, null],
+        [null, null, null, null, null, null, null, null],
+        ['&#9817;', '&#9817;', '&#9817;', '&#9817;', '&#9817;', '&#9817;', '&#9817;', '&#9817;'],
+        ['&#9814;', '&#9816;', '&#9815;', '&#9813;', '&#9812;', '&#9815;', '&#9816;', '&#9814;']
+    ];
+
+    let enPassant = [];
+
+    let piece = (piece, destination) => {
+        switch (piece.html().replace(/\s/g, '').charCodeAt(0)) {
+
+            // If piece is a pawn...
+            case 9817:
+            case 9823:
+                return validatePawn(piece, destination, state, enPassant);
+
+                // If piece is a rook...
+            case 9820:
+            case 9814:
+                return validateRook(piece, destination, state);
+
+                //if piece is a knight...
+            case 9816:
+            case 9822:
+                return validateKnight(piece, destination, state);
+
+                // If piece is a bishop..
+            case 9815:
+            case 9821:
+                return validateBishop(piece, destination, state);
+                //if piece is a king..
+            case 9812:
+            case 9818:
+                return validateKing(piece, destination, state);
+                //if piece is a queen..
+            case 9813:
+            case 9819:
+                return validateQueen(piece, destination, state);
+
+                // Implement cases for more pieces
+                // ASCII char code is the HTML minus the &# symbol
+
+            default:
+                return false;
+        }
+    }
+
+    $('.piece').draggable({
+        revert: "invalid"
+    });
+
+    // jQueryUI drag and drop function
+    $('.col-1').droppable({
+        drop: (e, ui) => {
+            if (piece(ui.draggable, e.target, state)) {
+
+                // Update the state
+
+                // Get rid of old en passant value
+                if (enPassant.length > 0) {
+                    enPassant = [];
+                }
+
+                let destX = parseInt($(e.target).attr('col'));
+                let destY = parseInt($(e.target).attr('row'));
+                let originX = parseInt($(ui.draggable).parent().attr('col'));
+                let originY = parseInt($(ui.draggable).parent().attr('row'));
+                state[destY][destX] = `&#${ui.draggable.html().charCodeAt(0)}`;
+                state[originY][originX] = null;
+
+                // Check if en passant is possible
+                if (ui.draggable.html().charCodeAt(0) == 9817 || ui.draggable.html().charCodeAt(0) == 9823) {
+                    if (Math.abs(destY - originY) > 1) {
+                        enPassant = [destX, destY];
+                    }
+                }
+
+                // Update the DOM 
+                e.target.innerHTML = `<p class="piece">${ui.draggable.html()}</p>`;
+                // Delete the piece
+                ui.draggable.remove();
+                // Make all the pieces draggable again
+                $('.piece').draggable({
+                    revert: "invalid"
+                });
+            } else {
+                return $(ui.draggable).draggable("option", "revert", true);
+            }
+        }
+    });
+
+});</code></pre>
             </div>
         </div>
     </div>
     <div class="col-12 col-sm-12">
         <div class="collapse multi-collapse" id="multiCollapseExample2">
             <div class="card card-body">
-                <h2>Pawn.js code</h2>
+                <pre><code class="language-javascript">
+                    let validatePawn = (piece, destination, state, enPassant) => {
+
+    // Returns true if the squares are occupied by same color
+    // Else, it returns an array with the piece colors (or empty) 
+    let squareOccupiedBySameColor = (piece, destination) => {
+        let pieceColor = piece.html().charCodeAt(0) < 9818 ? "white" : "black";
+        let destinationPiece = destination.innerText ? destination.innerText.charCodeAt(0) : false;
+        let destinationColor = !destinationPiece ? "empty" : destinationPiece < 9818 ? "white" : "black";
+
+        return pieceColor === destinationColor ? false : [pieceColor, destinationColor];
+    }
+
+    // Begin by checking if the square is occupied by same color
+    if (!squareOccupiedBySameColor(piece, destination)) {
+        return false;
+    }
+
+    // Get the colors of pieces occupying the squares
+    let colors = squareOccupiedBySameColor(piece, destination)
+    let pieceColor = colors[0];
+    let destinationColor = colors[1];
+
+    // Is only capturable if the destination is not empty and the colors are different
+    let capturable = () => {
+        if (destinationColor !== 'empty' && pieceColor !== destinationColor) {
+            return true;
+        }
+        return false;
+    }
+
+    // Calc if the destination is empty
+    let empty = destinationColor === 'empty';
+
+    // Calculate origin & destination coords given the HTML nodes
+    let originX = parseInt($(piece).parent().attr('col'));
+    let originY = parseInt($(piece).parent().attr('row'));
+    let destX = parseInt($(destination).attr('col'));
+    let destY = parseInt($(destination).attr('row'));
+
+    // Set positive direction for white, negative direction for black
+    let direction = pieceColor === "white" ? 1 : -1;
+
+    // Allow en passant
+    if (enPassant.length > 0) {
+        if (direction > 0 && Math.abs(originX - enPassant[0]) == 1 && destX == enPassant[0] && destY + 1 == enPassant[1]) {
+            $('.col-1[row=' + enPassant[1] + '][col=' + enPassant[0] + ']').empty();
+            return true;
+        } else if (direction < 0 && Math.abs(originX - enPassant[0]) == 1 && destX == enPassant[0] && destY - 1 == enPassant[1]) {
+            $('.col-1[row=' + enPassant[1] + '][col=' + enPassant[0] + ']').empty();
+            return true;
+        }
+    }
+
+    // Only allow diagonal movement if a piece is capturable
+    if (originX !== destX && !capturable()) {
+        return false;
+    }
+
+    // Check if piece has moved yet, and allow either 1 or 2 squares
+    // Works for both black and white pawns
+    if (direction > 0) {
+        if (originY == 6 && ((destY == 5 && !state[5][originX]) || (destY == 4 && !state[5][originX] && !state[4][originX])) ) {
+            return true;
+        } else if (originY == 6 && destY < 4) {
+            return false;
+        }
+    } else if (direction < 0) {
+        if (originY == 1 && ((destY == 2 && !state[2][originX]) || (destY == 3 && !state[2][originX] && !state[3][originX])) ) {
+            return true;
+        } else if (originY == 1 && destY > 3) {
+            return false;
+        }
+    }
+
+    // Check if pawn moving forward based on direction 
+    if (originY - (1 * direction) !== destY) {
+        return false;
+    }
+
+    // If square is empty, move forward in straight line
+    // If square is not empty, stop movement
+    // If moving diagonally, check if the distance between rows is 1
+    // If it is, and the piece is of the opposite color, allow movement
+    if ((empty && !capturable()) || (!empty && (Math.pow((originX - destX), 2) == 1 && capturable()))) {
+        return true;
+    }
+
+    return false;
+}</code></pre>
             </div>
         </div>
     </div>
     <div class="col-12 col-sm-12">
         <div class="collapse multi-collapse" id="multiCollapseExample3">
             <div class="card card-body">
-                <h2>Games controller</h2>
+                <pre><code class="language-ruby">
+# frozen_string_literal: true
+
+class GamesController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create]
+  def new
+    @game = Game.new
+  end
+
+  def create
+    @game = current_user.games.create(game_params)
+    if @game.valid?
+      redirect_to game_path(@game)
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  def show
+    @game = Game.find(params[:id])
+  end
+
+  private
+
+  def game_params
+    params.require(:game).permit(:name)
+  end
+end
+
+                </code></pre>
             </div>
         </div>
     </div>
