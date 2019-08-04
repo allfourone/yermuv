@@ -42,7 +42,7 @@ let validateKnight = (piece, destination, state) => {
 
         return false;
     }
-    
+
     // Create an array of possible moves for knights given origin coords
     // 8 possible moves for each knight, but 4 of them are inverses
     // of the other. Only need to generate 4 unique moves then reverse them.
@@ -51,23 +51,28 @@ let validateKnight = (piece, destination, state) => {
     moveArray.push([originX + 1, originY - 2]);
     moveArray.push([originX + 2, originY - 1]);
     moveArray.push([originX + 2, originY + 1]);
-
+    moveArray.push([originX + 1, originY + 2]);
+    moveArray.push([originX - 1, originY + 2]);
+    moveArray.push([originX - 2, originY - 1]);
+    moveArray.push([originX - 2, originY + 1]);
     // For each move, generate the inverse and add it to the array of moves
-    for (let i = 0; i < 4; i++) {
-        moveArray.push(moveArray[i].reverse());
-    }
+    for (let i = 0; i < 8; i++) {
+    moveArray.push(moveArray[i].reverse());
+}
+    console.log(moveArray);
 
     // Check if the move is possible by iterating over the array
     // Check if valid X and Y coords match the destination coords, or return false
     let movePossible = () => {
         for (let i = 0; i < moveArray.length; i++) {
             if (moveArray[i][0] == destY && moveArray[i][1] == destX) {
+
                 return true;
-            }            
+            }
         }
         return false;
     }
-    
+
     //if the square is empty, capturable, & made a valid knight move
     if ((empty || capturable()) && movePossible()) {
         return true;
