@@ -3,7 +3,7 @@ let validatePawn = (piece, destination, state, enPassant) => {
     // Returns true if the squares are occupied by same color
     // Else, it returns an array with the piece colors (or empty) 
     let squareOccupiedBySameColor = (piece, destination) => {
-        let pieceColor = piece.html().charCodeAt(0) < 9818 ? "white" : "black";
+        let pieceColor = piece.html().replace(/\s/g, '').charCodeAt(0) < 9818 ? "white" : "black";
         let destinationPiece = destination.innerText ? destination.innerText.charCodeAt(0) : false;
         let destinationColor = !destinationPiece ? "empty" : destinationPiece < 9818 ? "white" : "black";
 
@@ -73,7 +73,7 @@ let validatePawn = (piece, destination, state, enPassant) => {
     }
 
     // Check if pawn moving forward based on direction 
-    if (originY - (1 * direction) !== destY) {
+    if (originY - direction !== destY) {
         return false;
     }
 
