@@ -42,40 +42,28 @@ let validateKnight = (piece, destination, state) => {
 
         return false;
     }
+    
+    let moveArray = [];
+    moveArray.push([originX - 1, originY - 2]);
+    moveArray.push([originX + 1, originY - 2]);
+    moveArray.push([originX + 2, originY - 1]);
+    moveArray.push([originX + 2, originY + 1]);
 
+    for (let i = 0; i < 4; i++) {
+        moveArray.push(moveArray[i].reverse());
+    }
 
-    // Check if path is blocked
-    let blocked = () => {
-        // Get the direction the rook is moving
-        let xDirection = originX - destX > 0 ? 1 : -1;
-        let yDirection = originY - destY > 0 ? 1 : -1;
-
-        // Make sure that it doesn't move vertically or horizontally so the x-column and y-column
-        //will change with each movement
-        if ((destX === originX + 1 || destX === originX - 1) && (destY === originY + 2 || destY == originY - 2)) {
-
-            // Check for every square, not counting origin or destination
-            // since we check destination with empty & capturable()
-            let i = originY - (1 * yDirection);
-            let j = originX - (1 * xDirection);
-            while ((i === originY + 2 || i === originY - 2) && (j === originX + 1 || j == originX - 1)) {
-
-                // check the state at the coordinates for a piece
-                if (state[i][j]) {
-
-                    return true;
-                }
-                // Increment the counter based on the direction of travel
-                i -= 1 * yDirection;
-                j -= 1 * xDirection;
-            }
-
+    let movePossible = () => {
+        for (let i = 0; i < moveArray.length; i++) {
+            if (moveArray[i] = [destY, destX]) {
+                return true;
+            }            
         }
         return false;
     }
+    
     //if the square is empty, capturable, not blocked & the piece moved diagonally
-    if ((empty || capturable()) && !blocked() && (destX === originX + 1 || destX === originX - 1) && (destY === originY + 2 || destY == originY - 2)) {
-
+    if ((empty || capturable()) && movePossible()) {
         return true;
     }
 
