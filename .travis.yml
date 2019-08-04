@@ -11,4 +11,4 @@ script:
   - bundle exec rubocop -a
 before_install:
   - gem i rubygems-update -v '<3' && update_rubygems
-  - gem install bundler -v 1.17.3
+  - gem install bundler -v 2.0.2
