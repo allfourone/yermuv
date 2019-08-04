@@ -46,7 +46,7 @@ let validateKing = (piece, destination, state) => {
 
     // Check if path is blocked
     let blocked = () => {
-        // Get the direction the rook is moving
+        // Get the direction the king is moving
         let xDirection = originX - destX > 0 ? 1 : -1;
         let yDirection = originY - destY > 0 ? 1 : -1;
 
