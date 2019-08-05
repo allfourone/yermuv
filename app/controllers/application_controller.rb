@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
+
   def after_sign_in_path_for(_resource)
     request.env['omniauth.origin'] || root_path
   end
@@ -10,4 +11,5 @@ class ApplicationController < ActionController::Base
   # def authenticate
   #   redirect_to :login unless user_signed_in?
   # end
+
 end
