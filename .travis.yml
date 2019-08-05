@@ -1,14 +1,20 @@
+
 language: ruby
 rvm:
-  - 2.5.3
+- 2.5.3
 services:
-  - postgresql
+- postgresql
 before_script:
-  - bundle exec rake db:create
-  - bundle exec rake db:migrate
+- bundle exec rake db:create
+- bundle exec rake db:migrate
 script:
-  - bundle exec rspec
-  - bundle exec rubocop -a
+- bundle exec rspec
+- bundle exec rubocop -a
 before_install:
-  - gem i rubygems-update -v '<3' && update_rubygems
-  - gem install bundler -v 2.0.2
+- gem i rubygems-update -v '<3' && update_rubygems
+- gem install bundler -v 1.17.3
+deploy:
+  provider: heroku
+  api_key:
+    secure: oFigTeL6Jg+H3q95gXgNm/rCY+3D6y4y497pNKjc5I6Qzv5gPrS2RMvcTbcQAE+yvbg3Ka6p58tZfEXj02I6wp1DFx+zHxpahrnciDILAoDEynAKWEqgqnWNzuM7DuyUf0NAr1xavjDwqnF15JIBKT99S3UurauOXKX2seT/e5yNk/G+05YDkEC/IN8R2MTJwFNtXLon3dfOhz/eSNyAhzCDgIwNT1oiUOz7cU4/aFLGEmm2fQnctCi45rLxkQWusX9cavnF5V4JHM6Rtxysam2nkySq0hQxqX96PYam8IvxXd59DGt9PEIl4oxR72s5s7OuAs+vZzfKD+jQqoNuHvh4dF3tnXylMLYvLZK7pvO2TnFJQwPdVdKe8+VtqsWnamM9jx9KbI35jCsXI1k0CbVufVvgffPScHLOUWOWXVp27NRs25nPP1w9oeAzbtGFIP1Pi4++XMSV1kEx+a3SW34Vjti4wWK/Lb2hpN7YMLnwrtJOBr+8VZvG/L25xhC4hnSUyta4RZlxjboNdpILnJU6s1H8kblT2UyuzJO9FFB31TqP8Q+nC9QQI6VXY2hSbZuJIlEXPOhkzfbwFbisMEhsXeTzndg5YvJSxFvdG94a72ixaBcIMZP3CqEBDXu/IFHZjW5eUJSIhtE4aXAaqx/SiNSDDxHBgBf7G+MF+Ss=
+
