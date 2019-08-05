@@ -19,3 +19,20 @@ production:
   database: yermuv_production
   # username: yermuv
   # password: <%= ENV['YERMUV_DATABASE_PASSWORD'] %>
+
+# default: &default
+#   adapter: postgresql
+#   encoding: unicode
+#   host: db
+#   username: postgres
+#   password:
+#   pool: 5
+
+# development:
+#   <<: *default
+#   database: myapp_development
+
+
+# test:
+#   <<: *default
+#   database: myapp_test
