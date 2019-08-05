@@ -3,6 +3,9 @@
 require 'rails_helper'
 
 RSpec.describe GamesController, type: :controller do
+  before do
+    request.env['omniauth.auth'] = OmniAuth.config.mock_auth[:google_oauth2]
+  end
   describe 'games#update action' do
     it "shouldn't let users who didn't create the game update it." do
       game = FactoryBot.create(:game)

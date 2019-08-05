@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   # get 'auth/failure', to: redirect('/')
   get 'home', to: 'home#show'
   get 'me', to: 'me#show', as: 'me'
-  resources :games, only: %i[new create show]
+  resources :games, only: %i[new create show edit update]
 
   resources :users, only: :show
 
