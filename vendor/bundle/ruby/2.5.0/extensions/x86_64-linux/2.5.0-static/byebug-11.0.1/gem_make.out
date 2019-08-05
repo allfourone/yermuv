@@ -1,0 +1,19 @@
+current directory: /vagrant/src/yermuv/vendor/bundle/ruby/2.5.0/gems/byebug-11.0.1/ext/byebug
+/home/vagrant/.rbenv/versions/2.5.3/bin/ruby -I /home/vagrant/.rbenv/versions/2.5.3/lib/ruby/site_ruby/2.5.0 -r ./siteconf20190803-22556-xt5d0x.rb extconf.rb
+creating Makefile
+
+current directory: /vagrant/src/yermuv/vendor/bundle/ruby/2.5.0/gems/byebug-11.0.1/ext/byebug
+make "DESTDIR=" clean
+
+current directory: /vagrant/src/yermuv/vendor/bundle/ruby/2.5.0/gems/byebug-11.0.1/ext/byebug
+make "DESTDIR="
+compiling breakpoint.c
+compiling byebug.c
+compiling context.c
+compiling locker.c
+compiling threads.c
+linking shared-object byebug/byebug.so
+
+current directory: /vagrant/src/yermuv/vendor/bundle/ruby/2.5.0/gems/byebug-11.0.1/ext/byebug
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 byebug.so ./.gem.20190803-22556-qmx7wu/byebug

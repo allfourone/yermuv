@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 class GamesController < ApplicationController
+
   before_action :authenticate_user!, only: %i[new create update]
+
   def new
     @game = Game.new
   end
