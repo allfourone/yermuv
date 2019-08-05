@@ -2,7 +2,7 @@ let validateKnight = (piece, destination, state) => {
     // Returns true if the squares are occupied by same color
     // Else, it returns an array with the piece colors (or empty) 
     let squareOccupiedBySameColor = (piece, destination) => {
-        let pieceColor = piece.html().charCodeAt(0) < 9818 ? "white" : "black";
+        let pieceColor = piece.html().replace(/\s/g, '').charCodeAt(0) < 9818 ? "white" : "black";
         let destinationPiece = destination.innerText ? destination.innerText.charCodeAt(0) : false;
         let destinationColor = !destinationPiece ? "empty" : destinationPiece < 9818 ? "white" : "black";
 
@@ -24,7 +24,7 @@ let validateKnight = (piece, destination, state) => {
         if (destinationColor !== 'empty' && pieceColor !== destinationColor) {
             return true;
         }
-
+        
         return false;
     }
 
@@ -37,45 +37,20 @@ let validateKnight = (piece, destination, state) => {
     let destX = parseInt($(destination).attr('col'));
     let destY = parseInt($(destination).attr('row'));
 
-    // Make sure it is not moving in a straight line in either direction
-    if (destX === originX || destY === originY) {
+    // Check if the move is possible by checking if moving in an L shape
+    let movePossible = () => {
+        let xDif = Math.abs(destX - originX);
+        let yDif = Math.abs(destY - originY);
 
-        return false;
-    }
-
-
-    // Check if path is blocked
-    let blocked = () => {
-        // Get the direction the rook is moving
-        let xDirection = originX - destX > 0 ? 1 : -1;
-        let yDirection = originY - destY > 0 ? 1 : -1;
-
-        // Make sure that it doesn't move vertically or horizontally so the x-column and y-column
-        //will change with each movement
-        if ((destX === originX + 1 || destX === originX - 1) && (destY === originY + 2 || destY == originY - 2)) {
-
-            // Check for every square, not counting origin or destination
-            // since we check destination with empty & capturable()
-            let i = originY - (1 * yDirection);
-            let j = originX - (1 * xDirection);
-            while ((i === originY + 2 || i === originY - 2) && (j === originX + 1 || j == originX - 1)) {
-
-                // check the state at the coordinates for a piece
-                if (state[i][j]) {
-
-                    return true;
-                }
-                // Increment the counter based on the direction of travel
-                i -= 1 * yDirection;
-                j -= 1 * xDirection;
-            }
-
+        if ( (xDif == 2 && yDif == 1) || (xDif == 1 && yDif == 2)) {
+            return true;
         }
+
         return false;
     }
-    //if the square is empty, capturable, not blocked & the piece moved diagonally
-    if ((empty || capturable()) && !blocked() && (destX === originX + 1 || destX === originX - 1) && (destY === originY + 2 || destY == originY - 2)) {
-
+    
+    //if the square is empty, capturable, & made a valid knight move
+    if ((empty || capturable()) && movePossible()) {
         return true;
     }
 
