@@ -10,7 +10,7 @@
         <%= link_to 'Return Home', root_path, class: 'btn btn-success'%>
     </h1>
     <br />
-    <div class="container">
+    <div class="container" id=<%= @game.id %>>
         <% 8.times do |row_index| %>
         <div class="row no-gutters <%= (row_index + 1).even? ? " even" : "odd" %> ">
             <% 8.times do |col_index| %>
