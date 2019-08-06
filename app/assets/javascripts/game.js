@@ -1,30 +1,22 @@
 $(() => {
 
-    // This needs to be an AJAX request to pull from the DB and not hard-coded!
-    let state = [
-        ['&#9820;', '&#9822;', '&#9821;', '&#9819;', '&#9818;', '&#9821;', '&#9822;', '&#9820;'],
-        ['&#9823;', '&#9823;', '&#9823;', '&#9823;', '&#9823;', '&#9823;', '&#9823;', '&#9823;'],
-        [null, null, null, null, null, null, null, null],
-        [null, null, null, null, null, null, null, null],
-        [null, null, null, null, null, null, null, null],
-        [null, null, null, null, null, null, null, null],
-        ['&#9817;', '&#9817;', '&#9817;', '&#9817;', '&#9817;', '&#9817;', '&#9817;', '&#9817;'],
-        ['&#9814;', '&#9816;', '&#9815;', '&#9813;', '&#9812;', '&#9815;', '&#9816;', '&#9814;']
-    ];
+    let state, enPassant;
 
-    let getState = () => {
+    // AJAX request to pull game data from DB
+    let getGameData = async () => {
         let id = $('.container').attr('id');
         $.getJSON(id).success( (data) => {
-            // $.each(data, (index, game) => {
-            //     console.log(game);
-            // })
-            console.log(data)
+            setGameData(data);
         })
     };
 
-    $(document).on("page:load read", getState());
-
-    let enPassant = [];
+    // Set game data once getGameData completes
+    let setGameData = (game) => {
+        state = game.state;
+        enPassant = game.en_passant;
+    }
+    
+    getGameData();
 
     let piece = (piece, destination) => {
         switch (piece.html().replace(/\s/g, '').charCodeAt(0)) {
