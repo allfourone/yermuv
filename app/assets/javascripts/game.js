@@ -15,6 +15,11 @@ $(() => {
         state = game.state;
         enPassant = game.en_passant;
     }
+
+    // Update game data once move is made
+    let updateGameData = () => {
+        // Implement me!
+    }
     
     getGameData();
 
@@ -76,7 +81,7 @@ $(() => {
                 let destY = parseInt($(e.target).attr('row'));
                 let originX = parseInt($(ui.draggable).parent().attr('col'));
                 let originY = parseInt($(ui.draggable).parent().attr('row'));
-                state[destY][destX] = `&#${ui.draggable.html().charCodeAt(0)}`;
+                state[destY][destX] = `&#${ui.draggable.html().replace(/\s/g, '').charCodeAt(0)}`;
                 state[originY][originX] = null;
 
                 // Check if en passant is possible
@@ -94,6 +99,9 @@ $(() => {
                 $('.piece').draggable({
                     revert: "invalid"
                 });
+
+                // Update the game state
+                updateGameData();
             } else {
                 return $(ui.draggable).draggable("option", "revert", true);
             }
