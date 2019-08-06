@@ -12,6 +12,18 @@ $(() => {
         ['&#9814;', '&#9816;', '&#9815;', '&#9813;', '&#9812;', '&#9815;', '&#9816;', '&#9814;']
     ];
 
+    let getState = () => {
+        let id = $('.container').attr('id');
+        $.getJSON(id).success( (data) => {
+            // $.each(data, (index, game) => {
+            //     console.log(game);
+            // })
+            console.log(data)
+        })
+    };
+
+    $(document).on("page:load read", getState());
+
     let enPassant = [];
 
     let piece = (piece, destination) => {
@@ -37,12 +49,12 @@ $(() => {
             case 9821:
                 return validateBishop(piece, destination, state);
 
-                //if piece is a king..
+                // If piece is a king..
             case 9812:
             case 9818:
                 return validateKing(piece, destination, state);
 
-                //if piece is a queen..
+                // If piece is a queen..
             case 9813:
             case 9819:
                 return validateQueen(piece, destination, state);
