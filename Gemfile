@@ -78,8 +78,10 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 group :development, :test do
   gem 'factory_bot_rails'
 end
-
+gem 'bundler', '2.0.2'
 gem 'jquery-ui-rails'
+gem 'prism-rails'
+gem 'rake'
 gem 'rspec'
 gem 'rspec-rails'
 gem 'rubocop'

@@ -1,23 +1,25 @@
 @import "bootstrap";
 @import url('https://fonts.googleapis.com/css?family=Oswald|Roboto+Slab&display=swap');
 
+
+
 html {
     position: relative;
     min-height: 100%;
 
 }
 
+
+
 body {
     /* Margin bottom by footer height */
     margin-bottom: 100px;
     min-height: 100%;
-
-
-
 }
 
 .centered {
     text-align: center;
+
 }
 
 .hero {
@@ -28,7 +30,6 @@ body {
     background-size: cover;
     height: 370px;
     box-shadow: 0px 3px 8px #2a2a2a;
-
 }
 
 h1,
@@ -77,6 +78,8 @@ h1 {
     border-color: white;
 }
 
+
+
 .divider-style {
     border: 0;
     height: 1px;
@@ -93,19 +96,26 @@ hr {
 }
 
 .img-responsive {
-    border-radius: 50%;
+
     width: 100px;
     height: 100px;
+}
+
+.zoom {
+    width: 150px;
+    height: 150px;
+}
+
+.img_round {
+    border-radius: 50%;
     border-width: 2px;
     border-style: solid;
     border-color: black;
-
 
 }
 
 .team {
     padding: 10px 10px 10px 10px;
-
 }
 
 .booyah-box {
@@ -127,7 +137,9 @@ hr {
     text-align: center;
 }
 
-
+.trello {
+    margin-top: 20px;
+}
 
 .booyah-box h2,
 .booyah-box h1 {
@@ -183,6 +195,8 @@ a:hover {
 
 }
 
+
+
 #box-top {
     padding-top: 5vh;
 }
@@ -204,12 +218,137 @@ a:hover {
     padding-bottom: 1%;
 }
 
+.collapsible {
+
+    background-color: red;
+}
+
+.btn-link {
+    width: 180px;
+    height: 60px;
+    color: white;
+    text-decoration: none;
+}
+
+.btn-link:hover {
+    background: #F7F7F7;
+    text-decoration: none;
+    color: black;
+    border-width: 1px;
+    border-color: black;
+}
+
+.btn-success:hover {
+    background: #F7F7F7;
+    text-decoration: none;
+    color: black;
+    border-width: 1px;
+    border-color: black;
+}
+
+.btn.btn-custom {
+    background: #F7F7F7;
+    text-decoration: none;
+    color: black;
+    border-width: 1px;
+    border-color: black;
+}
+
+.btn.focus,
+.btn:focus {
+    outline: 0;
+    box-shadow: none !important;
+}
+
+.btn.active,
+.btn:active {
+    background-color: grey !important;
+    outline: 0;
+}
+
+
+
+
+
+
+
+.travis {
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+
+.rubocop {
+    margin-top: 20px;
+    margin-bottom: 32px;
+}
+
+.services {
+    color: black;
+}
+
+.services:hover {
+    color: grey;
+}
+
+.ruby {
+    margin-top: 20px;
+}
+
+.rails {
+    margin-top: 20px;
+}
+
+.htmlcssjs {
+    margin-top: 20px;
+}
+
+#lets {
+    font-size: 22px;
+}
+
+#team {
+    font-size: 26px
+}
 
 
 @media (min-width: 400px) {
+    #lets {
+        font-size: 36px;
+    }
+
+    #lets {
+        font-size: 44px;
+    }
+
     .piece {
         font-size: 27px;
     }
+
+    .travis {
+        margin-top: 20px;
+        margin-bottom: 32px;
+    }
+
+    .trello {
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+
+
+
+    .btn-link {
+        width: 458px;
+        height: 73px;
+        font-size: 29px;
+        font-color: white;
+        color: white;
+    }
+
+    .slack {
+        margin-top: 20px;
+        margin-bottom: 32px;
+    }
+
 }
 
 
@@ -219,6 +358,8 @@ a:hover {
     .piece {
         font-size: 38px;
     }
+
+
 }
 
 // Large devices (desktops, 992px and up)
