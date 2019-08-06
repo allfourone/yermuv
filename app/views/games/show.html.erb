@@ -19,10 +19,10 @@
 							offset-2
 						<% end %>
 						<%= (col_index + row_index).even? ? " light" : "dark" %> "
-                row="
-                <%= row_index %>"
-                col="
-                <%= col_index %>">
+                row=
+									"<%= row_index %>"
+                col=
+									"<%= col_index %>">
                 <% if @game.state[row_index][col_index] %>
                 <p class="piece">
                     <%= @game.state[row_index][col_index].html_safe %>

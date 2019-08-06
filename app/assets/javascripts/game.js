@@ -80,7 +80,7 @@ $(() => {
                 state[originY][originX] = null;
 
                 // Check if en passant is possible
-                if (ui.draggable.html().charCodeAt(0) == 9817 || ui.draggable.html().charCodeAt(0) == 9823) {
+                if (ui.draggable.html().replace(/\s/g, '').charCodeAt(0) == 9817 || ui.draggable.html().replace(/\s/g, '').charCodeAt(0) == 9823) {
                     if (Math.abs(destY - originY) > 1) {
                         enPassant = [destX, destY];
                     }
