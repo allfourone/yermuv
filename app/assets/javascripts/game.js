@@ -36,17 +36,16 @@ $(() => {
             case 9815:
             case 9821:
                 return validateBishop(piece, destination, state);
+
                 //if piece is a king..
             case 9812:
             case 9818:
                 return validateKing(piece, destination, state);
+
                 //if piece is a queen..
             case 9813:
             case 9819:
                 return validateQueen(piece, destination, state);
-
-                // Implement cases for more pieces
-                // ASCII char code is the HTML minus the &# symbol
 
             default:
                 return false;
