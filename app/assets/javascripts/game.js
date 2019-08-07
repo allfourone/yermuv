@@ -6,8 +6,9 @@ $(() => {
     let getGameData = async () => {
         let id = $('.container').attr('id');
         $.getJSON(id).success( (data) => {
+            console.log(data);
             setGameData(data);
-        })
+        });
     };
 
     // Set game data once getGameData completes
@@ -18,7 +19,22 @@ $(() => {
 
     // Update game data once move is made
     let updateGameData = () => {
-        // Implement me!
+        let data = {
+            game: {
+                state: state,
+                en_passant: enPassant
+            }
+        }
+        let id = $('.container').attr('id');
+        $.ajax({
+            url: '/games/' + id,
+            type: 'PUT',    
+            data: data,
+            dataType: 'json',
+            success: function(result) {
+                alert("posted");
+            }
+        });
     }
     
     getGameData();
