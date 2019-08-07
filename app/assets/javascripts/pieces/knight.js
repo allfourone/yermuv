@@ -1,4 +1,23 @@
 let validateKnight = (piece, destination, state) => {
+    let player = piece.html().replace(/\s/g, '').charCodeAt(0) < 9818 ? "player_one" : "player_two";
+    if (player === "player_one") {
+        if (counter % 2 === 0) {
+            counter += 1;
+            return true
+        } else {
+            return false
+        }
+    }
+
+    if (player === "player_two") {
+        if (counter % 2 === 1) {
+            counter += 1;
+            return true
+        } else {
+            return false
+        }
+    }
+
     // Returns true if the squares are occupied by same color
     // Else, it returns an array with the piece colors (or empty) 
     let squareOccupiedBySameColor = (piece, destination) => {
@@ -24,7 +43,7 @@ let validateKnight = (piece, destination, state) => {
         if (destinationColor !== 'empty' && pieceColor !== destinationColor) {
             return true;
         }
-        
+
         return false;
     }
 
@@ -42,13 +61,13 @@ let validateKnight = (piece, destination, state) => {
         let xDif = Math.abs(destX - originX);
         let yDif = Math.abs(destY - originY);
 
-        if ( (xDif == 2 && yDif == 1) || (xDif == 1 && yDif == 2)) {
+        if ((xDif == 2 && yDif == 1) || (xDif == 1 && yDif == 2)) {
             return true;
         }
 
         return false;
     }
-    
+
     //if the square is empty, capturable, & made a valid knight move
     if ((empty || capturable()) && movePossible()) {
         return true;
