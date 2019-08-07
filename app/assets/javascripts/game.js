@@ -6,7 +6,6 @@ $(() => {
     let getGameData = async () => {
         let id = $('.container').attr('id');
         $.getJSON(id).success( (data) => {
-            console.log(data);
             setGameData(data);
         });
     };
