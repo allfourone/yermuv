@@ -24,33 +24,406 @@
     </div>
 </div>
 <hr class="divider-style">
-<div>...</div>
+<div id="accordion" class="container">
+    <div class="card centered">
+        <div class="card-header" id="headingOne">
+            <h5 class="mb-0">
+                <button class="btn btn-link " data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    How Did We Communicate?
+                </button>
+            </h5>
+        </div>
+        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-md-4 col-sm-6 col-12 ">
+                        <a href="https://trello.com/en-US" class="services">
+                            <%= image_tag "trello.png", alt: "Trello", class: "img-responsive trello" %>
+                            <p> Trello was used for organizing responsibilities<br>
+                            </p>
+                        </a>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-12">
+                        <a href="https://zoom.us/" class="services">
+                            <%= image_tag "zoom.jpeg", alt: "Slack", class: "img-responsive zoom" %>
+                            <p> We held our virtual meetings through Zoom.<br>
+                            </p>
+                        </a>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-12">
+                        <a href="https://slack.com/" class="services">
+                            <%= image_tag "slack.png", alt: "Slack", class: "img-responsive slack" %>
+                            <p> Slack was used to communicate via keyboard throughout the day.<br>
+                            </p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="card centered">
+        <div class="card-header" id="headingtwo">
+            <h5 class="mb-0">
+                <button class="btn btn-link " data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                    What Tools Did We Implement?
+                </button>
+            </h5>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-md-4 col-sm-6 col-12 ">
+                        <a href="https://rspec.info/" class="services">
+                            <%= image_tag "rspec.png", alt: "Rspec", class: "img-responsive trello" %>
+                            <p> We chose Rspec for our test-driven develpment.<br>
+                            </p>
+                        </a>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-12">
+                        <a href="https://travis-ci.org/" class="services">
+                            <%= image_tag "travis_ci.png", alt: "Travis CI", class: "img-responsive travis" %>
+                            <p> We used Travis CI for our continuous integration.<br>
+                            </p>
+                        </a>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-12">
+                        <a href="https://rubocop.readthedocs.io/en/stable/" class="services">
+                            <%= image_tag "rubocop.png", alt: "Rubocop", class: "img-responsive rubocop" %>
+                            <p> RuboCop was our static code analyzer and code formatter.<br>
+                            </p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="card centered">
+        <div class="card-header" id="headingThree">
+            <h5 class="mb-0">
+                <button class="btn btn-link " data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                    What Languages Did We Use?
+                </button>
+            </h5>
+        </div>
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-md-4 col-sm-6 col-12 ">
+                        <a href="https://www.ruby-lang.org/en/" class="services">
+                            <%= image_tag "ruby.png", alt: "ruby", class: "img-responsive ruby" %>
+                            <p> Ruby<br>
+                            </p>
+                        </a>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-12">
+                        <a href="https://www.udemy.com/the-web-development-course-html5-css3-javascript/" class="services">
+                            <%= image_tag "htmlcssjs.jpeg", alt: "HTML, Javascript, CSS", class: "img-responsive htmlcssjs" %>
+                            <p> HTML5, CSS3, Javascript<br>
+                            </p>
+                        </a>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-12">
+                        <a href="https://rubyonrails.org/" class="services">
+                            <%= image_tag "rails.png", alt: "Rails", class: "img-responsive rails" %>
+                            <p> Ruby on Rails<br>
+                            </p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
 <hr class="divider-style">
-<h1> Our Team</h1>
+<h1 id="lets"> Let's See Some Code</h1>
+<br />
+<div class="container">
+    <div class="row">
+        <p>
+            <div class="col-12 col-sm-4 text-center  ">
+                <a class="btn btn-success" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Game.js</a>
+            </div>
+            <div class="col-12 col-sm-4 text-center">
+                <a class="btn btn-success" data-toggle="collapse" href="#multiCollapseExample2" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Pawn.js</a>
+            </div>
+            <div class="col-12 col-sm-4 text-center">
+                <a class="btn btn-success" data-toggle="collapse" href="#multiCollapseExample3" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Games Controller</a>
+            </div>
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12 col-sm-12">
+        <div class="collapse multi-collapse" id="multiCollapseExample1">
+            <div class="card card-body">
+                <pre><code class="language-javascript">
+  $(() => {
+
+    // This needs to be an AJAX request to pull from the DB and not hard-coded!
+    let state = [
+        ['&#9820;', '&#9822;', '&#9821;', '&#9819;', '&#9818;', '&#9821;', '&#9822;', '&#9820;'],
+        ['&#9823;', '&#9823;', '&#9823;', '&#9823;', '&#9823;', '&#9823;', '&#9823;', '&#9823;'],
+        [null, null, null, null, null, null, null, null],
+        [null, null, null, null, null, null, null, null],
+        [null, null, null, null, null, null, null, null],
+        [null, null, null, null, null, null, null, null],
+        ['&#9817;', '&#9817;', '&#9817;', '&#9817;', '&#9817;', '&#9817;', '&#9817;', '&#9817;'],
+        ['&#9814;', '&#9816;', '&#9815;', '&#9813;', '&#9812;', '&#9815;', '&#9816;', '&#9814;']
+    ];
+
+    let enPassant = [];
+
+    let piece = (piece, destination) => {
+        switch (piece.html().replace(/\s/g, '').charCodeAt(0)) {
+
+            // If piece is a pawn...
+            case 9817:
+            case 9823:
+                return validatePawn(piece, destination, state, enPassant);
+
+                // If piece is a rook...
+            case 9820:
+            case 9814:
+                return validateRook(piece, destination, state);
+
+                //if piece is a knight...
+            case 9816:
+            case 9822:
+                return validateKnight(piece, destination, state);
+
+                // If piece is a bishop..
+            case 9815:
+            case 9821:
+                return validateBishop(piece, destination, state);
+                //if piece is a king..
+            case 9812:
+            case 9818:
+                return validateKing(piece, destination, state);
+                //if piece is a queen..
+            case 9813:
+            case 9819:
+                return validateQueen(piece, destination, state);
+
+                // Implement cases for more pieces
+                // ASCII char code is the HTML minus the &# symbol
+
+            default:
+                return false;
+        }
+    }
+
+    $('.piece').draggable({
+        revert: "invalid"
+    });
+
+    // jQueryUI drag and drop function
+    $('.col-1').droppable({
+        drop: (e, ui) => {
+            if (piece(ui.draggable, e.target, state)) {
+
+                // Update the state
+
+                // Get rid of old en passant value
+                if (enPassant.length > 0) {
+                    enPassant = [];
+                }
+
+                let destX = parseInt($(e.target).attr('col'));
+                let destY = parseInt($(e.target).attr('row'));
+                let originX = parseInt($(ui.draggable).parent().attr('col'));
+                let originY = parseInt($(ui.draggable).parent().attr('row'));
+                state[destY][destX] = `&#${ui.draggable.html().charCodeAt(0)}`;
+                state[originY][originX] = null;
+
+                // Check if en passant is possible
+                if (ui.draggable.html().charCodeAt(0) == 9817 || ui.draggable.html().charCodeAt(0) == 9823) {
+                    if (Math.abs(destY - originY) > 1) {
+                        enPassant = [destX, destY];
+                    }
+                }
+
+                // Update the DOM 
+                e.target.innerHTML = `<p class="piece">${ui.draggable.html()}</p>`;
+                // Delete the piece
+                ui.draggable.remove();
+                // Make all the pieces draggable again
+                $('.piece').draggable({
+                    revert: "invalid"
+                });
+            } else {
+                return $(ui.draggable).draggable("option", "revert", true);
+            }
+        }
+    });
+
+});</code></pre>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-sm-12">
+        <div class="collapse multi-collapse" id="multiCollapseExample2">
+            <div class="card card-body">
+                <pre><code class="language-javascript">
+                    let validatePawn = (piece, destination, state, enPassant) => {
+
+    // Returns true if the squares are occupied by same color
+    // Else, it returns an array with the piece colors (or empty) 
+    let squareOccupiedBySameColor = (piece, destination) => {
+        let pieceColor = piece.html().charCodeAt(0) < 9818 ? "white" : "black";
+        let destinationPiece = destination.innerText ? destination.innerText.charCodeAt(0) : false;
+        let destinationColor = !destinationPiece ? "empty" : destinationPiece < 9818 ? "white" : "black";
+
+        return pieceColor === destinationColor ? false : [pieceColor, destinationColor];
+    }
+
+    // Begin by checking if the square is occupied by same color
+    if (!squareOccupiedBySameColor(piece, destination)) {
+        return false;
+    }
+
+    // Get the colors of pieces occupying the squares
+    let colors = squareOccupiedBySameColor(piece, destination)
+    let pieceColor = colors[0];
+    let destinationColor = colors[1];
+
+    // Is only capturable if the destination is not empty and the colors are different
+    let capturable = () => {
+        if (destinationColor !== 'empty' && pieceColor !== destinationColor) {
+            return true;
+        }
+        return false;
+    }
+
+    // Calc if the destination is empty
+    let empty = destinationColor === 'empty';
+
+    // Calculate origin & destination coords given the HTML nodes
+    let originX = parseInt($(piece).parent().attr('col'));
+    let originY = parseInt($(piece).parent().attr('row'));
+    let destX = parseInt($(destination).attr('col'));
+    let destY = parseInt($(destination).attr('row'));
+
+    // Set positive direction for white, negative direction for black
+    let direction = pieceColor === "white" ? 1 : -1;
+
+    // Allow en passant
+    if (enPassant.length > 0) {
+        if (direction > 0 && Math.abs(originX - enPassant[0]) == 1 && destX == enPassant[0] && destY + 1 == enPassant[1]) {
+            $('.col-1[row=' + enPassant[1] + '][col=' + enPassant[0] + ']').empty();
+            return true;
+        } else if (direction < 0 && Math.abs(originX - enPassant[0]) == 1 && destX == enPassant[0] && destY - 1 == enPassant[1]) {
+            $('.col-1[row=' + enPassant[1] + '][col=' + enPassant[0] + ']').empty();
+            return true;
+        }
+    }
+
+    // Only allow diagonal movement if a piece is capturable
+    if (originX !== destX && !capturable()) {
+        return false;
+    }
+
+    // Check if piece has moved yet, and allow either 1 or 2 squares
+    // Works for both black and white pawns
+    if (direction > 0) {
+        if (originY == 6 && ((destY == 5 && !state[5][originX]) || (destY == 4 && !state[5][originX] && !state[4][originX])) ) {
+            return true;
+        } else if (originY == 6 && destY < 4) {
+            return false;
+        }
+    } else if (direction < 0) {
+        if (originY == 1 && ((destY == 2 && !state[2][originX]) || (destY == 3 && !state[2][originX] && !state[3][originX])) ) {
+            return true;
+        } else if (originY == 1 && destY > 3) {
+            return false;
+        }
+    }
+
+    // Check if pawn moving forward based on direction 
+    if (originY - (1 * direction) !== destY) {
+        return false;
+    }
+
+    // If square is empty, move forward in straight line
+    // If square is not empty, stop movement
+    // If moving diagonally, check if the distance between rows is 1
+    // If it is, and the piece is of the opposite color, allow movement
+    if ((empty && !capturable()) || (!empty && (Math.pow((originX - destX), 2) == 1 && capturable()))) {
+        return true;
+    }
+
+    return false;
+}</code></pre>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-sm-12">
+        <div class="collapse multi-collapse" id="multiCollapseExample3">
+            <div class="card card-body">
+                <pre><code class="language-ruby">
+# frozen_string_literal: true
+
+class GamesController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create]
+  def new
+    @game = Game.new
+  end
+
+  def create
+    @game = current_user.games.create(game_params)
+    if @game.valid?
+      redirect_to game_path(@game)
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  def show
+    @game = Game.find(params[:id])
+  end
+
+  private
+
+  def game_params
+    params.require(:game).permit(:name)
+  end
+end
+
+                </code></pre>
+            </div>
+        </div>
+    </div>
+</div>
+<hr class="divider-style">
+<h1 id="team"> Our Team</h1>
 <div class="container">
     <div class="row team text-center ">
         <div class="col-lg-3 col-md-6 col-6">
-            <%= image_tag "me.jpg", alt: "Wilson's Profile Pic", class: "img-responsive" %>
+            <%= image_tag "me.jpg", alt: "Wilson's Profile Pic", class: "img-responsive img_round" %>
             <p> Wilson Horrell<br>
                 <a href="#">@BigPhatNerd</a></p>
         </div>
         <div class="col-lg-3 col-md-6 col-6">
-            <%= image_tag "me.jpg", alt: "Tyler's Profile Pic", class: "img-responsive" %>
+            <%= image_tag "me.jpg", alt: "Tyler's Profile Pic", class: "img-responsive img_round" %>
             <p>Tyler Porter<br>
                 <a href="#">twitterhandle</a></p>
         </div>
         <div class="col-lg-3 col-md-6 col-6">
-            <%= image_tag "me.jpg", alt: "Jason's Profile Pic", class: "img-responsive" %>
+            <%= image_tag "me.jpg", alt: "Jason's Profile Pic", class: "img-responsive img_round" %>
             <p>Jason Miley<br>
                 <a href="#"> twitterhandle</a></p>
         </div>
         <div class="col-lg-3 col-md-6 col-6">
-            <%= image_tag "me.jpg", alt: "Drew's Profile Pic", class: "img-responsive" %>
+            <%= image_tag "me.jpg", alt: "Drew's Profile Pic", class: "img-responsive img_round" %>
             <p> Drew Myers<br>
                 <a href="#">twitterhandle</a></p>
         </div>
         <div class="col-lg-3 col-md-6 col-12 git">
-            <%= image_tag "me.jpg", alt: "Josh's Profile Pic", class: "img-responsive" %>
+            <%= image_tag "me.jpg", alt: "Josh's Profile Pic", class: "img-responsive img_round" %>
             <p> Josh Wamble<br>
                 <a href="#">twitterhandle</a></p>
         </div>

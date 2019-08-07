@@ -183,6 +183,8 @@ GEM
       ast (~> 2.4.0)
     pg (1.1.4)
     popper_js (1.14.5)
+    prism-rails (1.6.0.3)
+      railties (>= 4.2, < 6)
     public_suffix (3.1.1)
     puma (3.12.1)
     pusher-client (0.6.2)
@@ -334,6 +336,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (>= 1.1.0)
   bootstrap (~> 4.3.1)
+  bundler (= 2.0.2)
   byebug
   capybara (>= 2.15)
   chromedriver-helper
@@ -348,8 +351,10 @@ DEPENDENCIES
   listen (>= 3.0.5, < 3.2)
   omniauth-google-oauth2
   pg (>= 0.18, < 2.0)
+  prism-rails
   puma (~> 3.11)
   rails (~> 5.2.3)
+  rake
   rspec
   rspec-rails
   rubocop
