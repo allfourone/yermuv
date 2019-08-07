@@ -1,0 +1,10 @@
+<h1 id="title">Yermuv Chess</h1>
+<div class=" booyah-box col-10 offset-1">
+    <h2> Edit Game </h2>
+    <%= simple_form_for @game do |f| %>
+    <div class="input">
+        <%= f.input :name %>
+    </div>
+    <%= f.submit "Update", class: 'my-btn' %>
+    <% end %>
+</div>
