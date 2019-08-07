@@ -1,4 +1,6 @@
 let validateKing = (piece, destination, state) => {
+    //Check to see if it is Player 1 or Player 2's turn.
+    //Player 1 (white) goes first and a counter keeps track of each move
     let player = piece.html().replace(/\s/g, '').charCodeAt(0) < 9818 ? "player_one" : "player_two";
     if (player === "player_one") {
         if (counter % 2 === 0) {
