@@ -20,7 +20,7 @@ $(() => {
     let updateGameData = () => {
         let data = {
             game: {
-                state: state,
+                state: JSON.stringify(state),
                 en_passant: enPassant
             }
         }

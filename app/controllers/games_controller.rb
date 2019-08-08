@@ -34,6 +34,7 @@ class GamesController < ApplicationController
       return render_not_found(:forbidden) 
     end
 
+    game_params = ActiveSupport::JSON.decode game_params
     @game.update_attributes(game_params)
 
     if @game.valid?
@@ -58,19 +59,9 @@ class GamesController < ApplicationController
   private
 
   def game_params
-    params.require(:game)
-      .permit(
-        :name, 
-        en_passant: [], 
-        state: [
-          '0': [],
-          '1': [],
-          '2': [],
-          '3': [],
-          '4': [],
-          '5': [],
-          '6': [],
-          '7': []
-        ])
+    params.require(:game).permit(
+      :name,
+      :state,
+      en_passant: [])    
   end
 end
