@@ -2,6 +2,10 @@
 
 Yermuv is a Chess game where we worked as a group of 5 junior developers, as a part of Vanderbilt Coding Boot Camp, with the guidance of Les Zychowski to build this great game. We built this game to develop real-life work experience working together with individual responsibilites and helping eachother when needed. We held weekly scrum meetings to set up tickets to individually work on. We documented these tickets using our Trello board. We each made individual branches with each ticket we created, so we could check eachothers code before pushing to master. 
 
+# Yermuv Deployed
+
+- https://yermuv.herokuapp.com
+
 # Screenshots
 
 
