@@ -16,10 +16,6 @@ Yermuv was built with:
 - Devise
 - Omniauth
 
-# Installation
-
-
-
 # Tests
 
 Travis CI and Rspec were used to test our game. We wrote our own tests and tested them by running bundle exec rspec. Travis CI is integrated into our project testing our code before it would let us push to master. Travis CI would show errors in Github if there were any that needed to be corrected.
