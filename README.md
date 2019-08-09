@@ -31,7 +31,7 @@ Add a pull request, or open an issue.
 
 # Credits
 
-- Tyler Porter- 
+- Tyler Porter- https://www.linkedin.com/in/tyler-porter-099413a2/
 - Wilson Horrell- https://www.linkedin.com/in/wilson-horrell-54167a21/
 - Drew Myers- https://www.linkedin.com/in/drew-myers-70788a183/
 - Jason Miley- https://www.linkedin.com/in/jason-miley-83719073/
