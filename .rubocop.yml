@@ -8,6 +8,18 @@ Metrics/BlockLength:
   Exclude:
     - "**/*_spec.rb"
 
+Style/GuardClause:
+  Exclude:
+    - 'app/controllers/games_controller.rb'
+
+Metrics/AbcSize:
+  Exclude:
+    - 'app/controllers/games_controller.rb'    
+
+Metrics/MethodLength:
+  Exclude:
+    - 'app/controllers/games_controller.rb'
+
 AllCops:
   Exclude:
     - 'bin/*'

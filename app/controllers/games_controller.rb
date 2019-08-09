@@ -19,24 +19,23 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
     @state = []
 
-    @game.state.each_with_index do |row, i|
-      @state.push( row.split(' ').map { |x| x == '0'? nil : x } )
+    @game.state.each do |row|
+      @state.push(row.split(' ').map { |x| x == '0' ? nil : x })
     end
 
     respond_to do |format|
       format.html
       format.json { render json: @game }
     end
-    
   end
 
   def update
     @game = Game.find_by_id(params[:id])
-    
+
     if @game.blank?
-      return render_not_found 
+      return render_not_found
     elsif @game.user != current_user
-      return render_not_found(:forbidden) 
+      return render_not_found(:forbidden)
     end
 
     @game.update_attributes(game_params)
@@ -46,7 +45,7 @@ class GamesController < ApplicationController
         format.html { redirect_to root_path }
         format.json { head :ok }
       end
-    else       
+    else
       respond_to do |format|
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @game.errors, status: :unprocessable_entity }
@@ -66,6 +65,7 @@ class GamesController < ApplicationController
     params.require(:game).permit(
       :name,
       state: [],
-      en_passant: [])    
+      en_passant: []
+    )
   end
 end

@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
-
   def after_sign_in_path_for(_resource)
     request.env['omniauth.origin'] || root_path
   end
@@ -17,5 +16,4 @@ class ApplicationController < ActionController::Base
   def render_not_found(status = :not_found)
     render plain: "#{status.to_s.titleize} :(", status: status
   end
-
 end
