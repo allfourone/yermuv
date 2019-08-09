@@ -38,18 +38,18 @@ class GamesController < ApplicationController
     elsif @game.user != current_user
       return render_not_found(:forbidden) 
     end
-    
+
     @game.update_attributes(game_params)
 
     if @game.valid?
       respond_to do |format|
         format.html { redirect_to root_path }
-        format.json { render json: @game, status: :success }
+        format.json { head :ok }
       end
     else       
       respond_to do |format|
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @game, status: :unprocessable_entity }
+        format.json { render json: @game.errors, status: :unprocessable_entity }
       end
     end
   end
