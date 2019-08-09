@@ -17,7 +17,12 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
-    
+    @state = []
+
+    @game.state.each_with_index do |row, i|
+      @state.push( row.split(' ').map { |x| x == '0'? nil : x } )
+    end
+
     respond_to do |format|
       format.html
       format.json { render json: @game }
@@ -33,8 +38,7 @@ class GamesController < ApplicationController
     elsif @game.user != current_user
       return render_not_found(:forbidden) 
     end
-
-    game_params = ActiveSupport::JSON.decode game_params
+    
     @game.update_attributes(game_params)
 
     if @game.valid?
@@ -61,7 +65,7 @@ class GamesController < ApplicationController
   def game_params
     params.require(:game).permit(
       :name,
-      :state,
+      state: [],
       en_passant: [])    
   end
 end

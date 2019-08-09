@@ -6,9 +6,31 @@ $(() => {
     let getGameData = async () => {
         let id = $('.container').attr('id');
         $.getJSON(id).success( (data) => {
-            setGameData(data);
+            parseState(data);
         });
     };
+
+    // Parse the state array from GET request
+    let parseState = (data) => {
+        let parsedState = [];
+
+        for (let i = 0; i < data.state.length; i++) {
+            parsedState.push( data.state[i].split(' ').map( (x) => x == '0' ? null : x) );
+        }
+        data.state = parsedState;
+        setGameData(data);
+    }
+
+    // Stringify state array to simplify PUT request
+    let stringifyState = () => {
+        let stringifiedState = [];
+
+        for (let i = 0; i < state.length; i++) {
+            stringifiedState.push( state[i].map( (x) => x ? x : '0' ).join(' ') );
+        }
+
+        return stringifiedState;
+    }
 
     // Set game data once getGameData completes
     let setGameData = (game) => {
@@ -20,7 +42,7 @@ $(() => {
     let updateGameData = () => {
         let data = {
             game: {
-                state: JSON.stringify(state),
+                state: stringifyState(),
                 en_passant: enPassant
             }
         }
