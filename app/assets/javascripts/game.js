@@ -113,7 +113,7 @@ $(() => {
         
         // On drop action...  
         drop: (e, ui) => {
-
+            
             // Check if the move is valid
             if (piece(ui.draggable, e.target, state)) {
 
@@ -129,7 +129,7 @@ $(() => {
                 let originY = parseInt($(ui.draggable).parent().attr('row'));
 
                 // Remove pieces at the origin, and add/update pieces at the destination
-                state[destY][destX] = `&#${ui.draggable.html().replace(/\s/g, '').charCodeAt(0)}`;
+                state[destY][destX] = `&#${ui.draggable.html().replace(/\s/g, '').charCodeAt(0)};`;
                 state[originY][originX] = null;
 
                 // Check if en passant is possible
