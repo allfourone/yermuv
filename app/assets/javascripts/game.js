@@ -3,7 +3,7 @@ $(() => {
     let state, enPassant;
 
     // AJAX request to pull game data from DB
-    let getGameData = async () => {
+    let getGameData = () => {
         let id = $('.container').attr('id');
         $.getJSON(id).success( (data) => {
             parseState(data);
@@ -40,12 +40,14 @@ $(() => {
 
     // Update game data once move is made
     let updateGameData = () => {
+        // Build the data variable for easy insertion into DB
         let data = {
             game: {
                 state: stringifyState(),
                 en_passant: enPassant
             }
         }
+        // Get the game ID from the DOM
         let id = $('.container').attr('id');
         $.ajax({
             url: '/games/' + id,
@@ -58,8 +60,10 @@ $(() => {
         });
     }
     
+    // Get the initial state variables from the DB
     getGameData();
 
+    // Piece validation function
     let piece = (piece, destination) => {
         switch (piece.html().replace(/\s/g, '').charCodeAt(0)) {
 
@@ -98,26 +102,33 @@ $(() => {
         }
     }
 
+    // jQueryUI drag and drop function
+    // Set each piece as a draggable object
     $('.piece').draggable({
         revert: "invalid"
     });
 
-    // jQueryUI drag and drop function
+    // Set each square as a droppable area
     $('.col-1').droppable({
+        
+        // On drop action...  
         drop: (e, ui) => {
-            if (piece(ui.draggable, e.target, state)) {
 
-                // Update the state
+            // Check if the move is valid
+            if (piece(ui.draggable, e.target, state)) {
 
                 // Get rid of old en passant value
                 if (enPassant.length > 0) {
                     enPassant = [];
                 }
 
+                // Set the origin and destination of the pieces
                 let destX = parseInt($(e.target).attr('col'));
                 let destY = parseInt($(e.target).attr('row'));
                 let originX = parseInt($(ui.draggable).parent().attr('col'));
                 let originY = parseInt($(ui.draggable).parent().attr('row'));
+
+                // Remove pieces at the origin, and add/update pieces at the destination
                 state[destY][destX] = `&#${ui.draggable.html().replace(/\s/g, '').charCodeAt(0)}`;
                 state[originY][originX] = null;
 
@@ -140,6 +151,7 @@ $(() => {
                 // Update the game state
                 updateGameData();
             } else {
+                // Reset the draggable
                 return $(ui.draggable).draggable("option", "revert", true);
             }
         }
