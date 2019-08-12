@@ -19,4 +19,6 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require_tree .
+//= require_tree ./pieces
+//= require_tree ./functions
 //= require jquery-ui

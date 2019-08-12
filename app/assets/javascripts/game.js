@@ -113,9 +113,15 @@ $(() => {
         
         // On drop action...  
         drop: (e, ui) => {
-            
+
             // Check if the move is valid
             if (piece(ui.draggable, e.target, state)) {
+
+                // Get color of moving piece
+                let color = ui.draggable.html().replace(/\s/g, '').charCodeAt(0) < 9818 ? "white" : "black";
+
+                // Check if the piece is in check
+                isInCheck(color, state);
 
                 // Get rid of old en passant value
                 if (enPassant.length > 0) {
