@@ -7,22 +7,28 @@
     <h1 class="centered">
         <%= @game.name %>
         <br />
+        <% @game.white_piece_captured.each do |piece| %>
+        <%= piece %>
+        <% end %>
+        <br />
         <%= link_to 'Return Home', root_path, class: 'btn btn-success'%>
     </h1>
     <br />
-    <div class="container" id=<%= @game.id %>>
+    <div class="container" id=<%=@game.id %>>
         <% 8.times do |row_index| %>
         <div class="row no-gutters <%= (row_index + 1).even? ? " even" : "odd" %> ">
             <% 8.times do |col_index| %>
             <div class="col-1 
-						<% if col_index == 0 %>
-							offset-2
-						<% end %>
-						<%= (col_index + row_index).even? ? " light" : "dark" %> "
+                        <% if col_index == 0 %>
+                            offset-2
+                        <% end %>
+                        <%= (col_index + row_index).even? ? " light" : "dark" %> "
                 row=
-									"<%= row_index %>"
+                "
+                <%= row_index %>"
                 col=
-									"<%= col_index %>">
+                "
+                <%= col_index %>">
                 <% if @state[row_index][col_index] %>
                 <p class="piece">
                     <%= @state[row_index][col_index].html_safe %>
@@ -33,11 +39,15 @@
         </div>
         <% end %>
     </div>
-    <div>
-        <h3 class="centered">
+    <div class="centered">
+        <h1>
+            <% @game.black_piece_captured.each do |piece| %>
+            <%= piece %>
+            <% end %>
+            <br />
             <% if current_user %>
             <%= current_user.email %>
             <% end %>
-        </h3>
+        </h1>
     </div>
 </body>

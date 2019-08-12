@@ -19,6 +19,7 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
     @state = []
 
+
     @game.state.each do |row|
       @state.push(row.split(' ').map { |x| x == '0' ? nil : x })
     end
@@ -65,7 +66,9 @@ class GamesController < ApplicationController
     params.require(:game).permit(
       :name,
       state: [],
-      en_passant: []
+      en_passant: [],
+      white_piece_captured: [],
+      black_piece_captured: []
     )
   end
 end

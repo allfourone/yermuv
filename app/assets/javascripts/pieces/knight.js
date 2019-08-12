@@ -24,8 +24,14 @@ let validateKnight = (piece, destination, state) => {
         if (destinationColor !== 'empty' && pieceColor !== destinationColor) {
             return true;
         }
-        
+
         return false;
+    }
+
+    if (capturable && destination.innerText.charCodeAt(0) < 9818) {
+        whitePiecesCaptured.push(destination.innerText);
+    } else if (capturable && destination.innerText.charCodeAt(0) >= 9818) {
+        blackPiecesCaptured.push(destination.innerText);
     }
 
     // Calc if the destination is empty
@@ -42,13 +48,13 @@ let validateKnight = (piece, destination, state) => {
         let xDif = Math.abs(destX - originX);
         let yDif = Math.abs(destY - originY);
 
-        if ( (xDif == 2 && yDif == 1) || (xDif == 1 && yDif == 2)) {
+        if ((xDif == 2 && yDif == 1) || (xDif == 1 && yDif == 2)) {
             return true;
         }
 
         return false;
     }
-    
+
     //if the square is empty, capturable, & made a valid knight move
     if ((empty || capturable()) && movePossible()) {
         return true;

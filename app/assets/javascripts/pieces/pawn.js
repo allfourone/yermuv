@@ -10,6 +10,8 @@ let validatePawn = (piece, destination, state, enPassant) => {
         return pieceColor === destinationColor ? false : [pieceColor, destinationColor];
     }
 
+
+
     // Begin by checking if the square is occupied by same color
     if (!squareOccupiedBySameColor(piece, destination)) {
         return false;
@@ -23,10 +25,28 @@ let validatePawn = (piece, destination, state, enPassant) => {
     // Is only capturable if the destination is not empty and the colors are different
     let capturable = () => {
         if (destinationColor !== 'empty' && pieceColor !== destinationColor) {
+
             return true;
         }
         return false;
     }
+
+
+
+
+
+    if (capturable && destination.innerText.charCodeAt(0) < 9818) {
+        whitePiecesCaptured.push(destination.innerText);
+    } else if (capturable && destination.innerText.charCodeAt(0) >= 9818) {
+        blackPiecesCaptured.push(destination.innerText);
+    }
+
+
+
+
+
+
+
 
     // Calc if the destination is empty
     let empty = destinationColor === 'empty';
@@ -59,13 +79,13 @@ let validatePawn = (piece, destination, state, enPassant) => {
     // Check if piece has moved yet, and allow either 1 or 2 squares
     // Works for both black and white pawns
     if (direction > 0) {
-        if (originY == 6 && ((destY == 5 && !state[5][originX]) || (destY == 4 && !state[5][originX] && !state[4][originX])) ) {
+        if (originY == 6 && ((destY == 5 && !state[5][originX]) || (destY == 4 && !state[5][originX] && !state[4][originX]))) {
             return true;
         } else if (originY == 6 && destY < 4) {
             return false;
         }
     } else if (direction < 0) {
-        if (originY == 1 && ((destY == 2 && !state[2][originX]) || (destY == 3 && !state[2][originX] && !state[3][originX])) ) {
+        if (originY == 1 && ((destY == 2 && !state[2][originX]) || (destY == 3 && !state[2][originX] && !state[3][originX]))) {
             return true;
         } else if (originY == 1 && destY > 3) {
             return false;

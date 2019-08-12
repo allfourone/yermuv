@@ -28,6 +28,12 @@ let validateKing = (piece, destination, state) => {
         return false;
     }
 
+    if (capturable && destination.innerText.charCodeAt(0) < 9818) {
+        whitePiecesCaptured.push(destination.innerText);
+    } else if (capturable && destination.innerText.charCodeAt(0) >= 9818) {
+        blackPiecesCaptured.push(destination.innerText);
+    }
+
     // Calc if the destination is empty
     let empty = destinationColor === 'empty';
 
