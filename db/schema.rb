@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2019_07_26_143618) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "state", default: [["&#9820;", "&#9822;", "&#9821;", "&#9819;", "&#9818;", "&#9821;", "&#9822;", "&#9820;"], ["&#9823;", "&#9823;", "&#9823;", "&#9823;", "&#9823;", "&#9823;", "&#9823;", "&#9823;"], [nil, nil, nil, nil, nil, nil, nil, nil], [nil, nil, nil, nil, nil, nil, nil, nil], [nil, nil, nil, nil, nil, nil, nil, nil], [nil, nil, nil, nil, nil, nil, nil, nil], ["&#9817;", "&#9817;", "&#9817;", "&#9817;", "&#9817;", "&#9817;", "&#9817;", "&#9817;"], ["&#9814;", "&#9816;", "&#9815;", "&#9813;", "&#9812;", "&#9815;", "&#9816;", "&#9814;"]], array: true
+    t.text "state", default: ["&#9820; &#9822; &#9821; &#9819; &#9818; &#9821; &#9822; &#9820;", "&#9823; &#9823; &#9823; &#9823; &#9823; &#9823; &#9823; &#9823;", "0 0 0 0 0 0 0 0", "0 0 0 0 0 0 0 0", "0 0 0 0 0 0 0 0", "0 0 0 0 0 0 0 0", "&#9817; &#9817; &#9817; &#9817; &#9817; &#9817; &#9817; &#9817;", "&#9814; &#9816; &#9815; &#9813; &#9812; &#9815; &#9816; &#9814;"], array: true
     t.boolean "white_in_check"
     t.boolean "black_in_check"
     t.integer "white_player_id"
@@ -30,16 +30,6 @@ ActiveRecord::Schema.define(version: 2019_07_26_143618) do
     t.text "en_passant", default: [], array: true
     t.text "castling", default: ["t", "t"], array: true
     t.index ["user_id"], name: "index_games_on_user_id"
-  end
-
-  create_table "omni_users", force: :cascade do |t|
-    t.string "provider"
-    t.string "uid"
-    t.string "emailfirst_name"
-    t.string "last_name"
-    t.string "picture"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

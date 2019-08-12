@@ -10,7 +10,7 @@
         <%= link_to 'Return Home', root_path, class: 'btn btn-success'%>
     </h1>
     <br />
-    <div class="container">
+    <div class="container" id=<%= @game.id %>>
         <% 8.times do |row_index| %>
         <div class="row no-gutters <%= (row_index + 1).even? ? " even" : "odd" %> ">
             <% 8.times do |col_index| %>
@@ -19,13 +19,13 @@
 							offset-2
 						<% end %>
 						<%= (col_index + row_index).even? ? " light" : "dark" %> "
-                row="
-                <%= row_index %>"
-                col="
-                <%= col_index %>">
-                <% if @game.state[row_index][col_index] %>
+                row=
+									"<%= row_index %>"
+                col=
+									"<%= col_index %>">
+                <% if @state[row_index][col_index] %>
                 <p class="piece">
-                    <%= @game.state[row_index][col_index].html_safe %>
+                    <%= @state[row_index][col_index].html_safe %>
                 </p>
                 <% end %>
             </div>
