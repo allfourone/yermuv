@@ -32,16 +32,6 @@ ActiveRecord::Schema.define(version: 2019_07_26_143618) do
     t.index ["user_id"], name: "index_games_on_user_id"
   end
 
-  create_table "omni_users", force: :cascade do |t|
-    t.string "provider"
-    t.string "uid"
-    t.string "emailfirst_name"
-    t.string "last_name"
-    t.string "picture"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
