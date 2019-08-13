@@ -1,6 +1,6 @@
 $(() => {
 
-    let state, enPassant;
+    let state, enPassant, castling;
 
     // AJAX request to pull game data from DB
     let getGameData = async () => {
@@ -36,6 +36,7 @@ $(() => {
     let setGameData = (game) => {
         state = game.state;
         enPassant = game.en_passant;
+        castling = game.castling;
     }
 
     // Update game data once move is made
@@ -86,7 +87,7 @@ $(() => {
                 // If piece is a king..
             case 9812:
             case 9818:
-                return validateKing(piece, destination, state);
+                return validateKing(piece, destination, state, castling);
 
                 // If piece is a queen..
             case 9813:
@@ -114,6 +115,12 @@ $(() => {
                     enPassant = [];
                 }
 
+                // Check if moved piece was king
+                // if so, set all castling to false
+                if (ui.draggable.html().replace(/\s/g, '').charCodeAt(0) == 9812) {
+                    castling = [false, false];
+                }
+
                 let destX = parseInt($(e.target).attr('col'));
                 let destY = parseInt($(e.target).attr('row'));
                 let originX = parseInt($(ui.draggable).parent().attr('col'));
@@ -121,6 +128,16 @@ $(() => {
                 state[destY][destX] = `&#${ui.draggable.html().replace(/\s/g, '').charCodeAt(0)}`;
                 state[originY][originX] = null;
 
+                // Check if moved piece was rook
+                // if so, set castling to that side to false
+                if (ui.draggable.html().replace(/\s/g, '').charCodeAt(0) == 9814) {
+                    if (originX === 7) {
+                        castling = [true, false];
+                    } else if (originX === 0) {
+                        castling = [false, true];
+                    }                        
+                }
+            
                 // Check if en passant is possible
                 if (ui.draggable.html().replace(/\s/g, '').charCodeAt(0) == 9817 || ui.draggable.html().replace(/\s/g, '').charCodeAt(0) == 9823) {
                     if (Math.abs(destY - originY) > 1) {
@@ -137,8 +154,9 @@ $(() => {
                     revert: "invalid"
                 });
 
+                console.log(state);
                 // Update the game state
-                updateGameData();
+                // updateGameData();
             } else {
                 return $(ui.draggable).draggable("option", "revert", true);
             }

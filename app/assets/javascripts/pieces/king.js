@@ -1,4 +1,4 @@
-let validateKing = (piece, destination, state) => {
+let validateKing = (piece, destination, state, castling) => {
     // Returns true if the squares are occupied by same color
     // Else, it returns an array with the piece colors (or empty) 
     let squareOccupiedBySameColor = (piece, destination) => {
@@ -37,6 +37,13 @@ let validateKing = (piece, destination, state) => {
     let destX = parseInt($(destination).attr('col'));
     let destY = parseInt($(destination).attr('row'));
 
+    // Castling
+    if (castling[1] && originY === destY && destX === 6) {
+        $('.col-1[row=' + destY + '][col=7]').empty();
+        $('.col-1[row=' + destY + '][col=5]').html(`<p class="piece">&#9814;</p>`);
+        return true;
+    }
+
     // Make sure it is not moving in a straight line in either direction
     if ((destX > originX + 1 || destX < originX - 1) || (destY > originY + 1 || destY < originY - 1)) {
 
@@ -74,7 +81,6 @@ let validateKing = (piece, destination, state) => {
     }
     //if the square is empty, capturable, and not blocked 
     if ((empty || capturable()) && !blocked()) {
-
         return true;
     }
 
