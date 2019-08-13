@@ -1,6 +1,6 @@
 $(() => {
 
-    let state, enPassant;
+    let state, enPassant, whiteInCheck, blackInCheck;
 
     // AJAX request to pull game data from DB
     let getGameData = () => {
@@ -36,6 +36,8 @@ $(() => {
     let setGameData = (game) => {
         state = game.state;
         enPassant = game.en_passant;
+        whiteInCheck = game.white_in_check;
+        blackInCheck = game.black_in_check;
     }
 
     // Update game data once move is made
@@ -44,7 +46,9 @@ $(() => {
         let data = {
             game: {
                 state: stringifyState(),
-                en_passant: enPassant
+                en_passant: enPassant,
+                white_in_check: whiteInCheck,
+                black_in_check: blackInCheck
             }
         }
         // Get the game ID from the DOM
@@ -149,9 +153,13 @@ $(() => {
                 // Delete the piece
                 ui.draggable.remove();
 
-                // Check if the player's king is in check                
+                // Check if the opposite king is in check         
                 if (isInCheck(opposingColor, state, enPassant)) {
-                    console.log(isInCheck(opposingColor, state, enPassant))
+                    if (opposingColor == "white") {
+                        whiteInCheck = true;
+                    } else if (opposingColor == "black") {
+                        blackInCheck = true;
+                    }
                 }
 
                 // Make all the pieces draggable again

@@ -1,7 +1,7 @@
 class ModifyGameFields < ActiveRecord::Migration[5.2]
   def change
-    add_column :games, :white_in_check, :boolean
-    add_column :games, :black_in_check, :boolean
+    add_column :games, :white_in_check, :boolean, :default => false
+    add_column :games, :black_in_check, :boolean, :default => false
     add_column :games, :white_player_id, :integer
     add_column :games, :black_player_id, :integer
     add_column :games, :winning_player_id, :integer
