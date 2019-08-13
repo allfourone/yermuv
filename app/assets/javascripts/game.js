@@ -108,6 +108,8 @@ $(() => {
         drop: (e, ui) => {
             if (piece(ui.draggable, e.target, state)) {
 
+
+                console.log(castling);
                 // Update the state
 
                 // Get rid of old en passant value
@@ -117,7 +119,7 @@ $(() => {
 
                 // Check if moved piece was king
                 // if so, set all castling to false
-                if (ui.draggable.html().replace(/\s/g, '').charCodeAt(0) == 9812) {
+                if (ui.draggable.html().replace(/\s/g, '').charCodeAt(0) == 9812 || ui.draggable.html().replace(/\s/g, '').charCodeAt(0) == 9818) {
                     castling = [false, false];
                 }
 
@@ -130,7 +132,7 @@ $(() => {
 
                 // Check if moved piece was rook
                 // if so, set castling to that side to false
-                if (ui.draggable.html().replace(/\s/g, '').charCodeAt(0) == 9814) {
+                if (ui.draggable.html().replace(/\s/g, '').charCodeAt(0) == 9814 || ui.draggable.html().replace(/\s/g, '').charCodeAt(0) == 9820) {
                     if (originX === 7) {
                         castling = [true, false];
                     } else if (originX === 0) {
@@ -154,9 +156,8 @@ $(() => {
                     revert: "invalid"
                 });
 
-                console.log(state);
                 // Update the game state
-                // updateGameData();
+                updateGameData();
             } else {
                 return $(ui.draggable).draggable("option", "revert", true);
             }

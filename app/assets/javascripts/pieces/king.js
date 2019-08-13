@@ -40,9 +40,12 @@ let validateKing = (piece, destination, state, castling) => {
     // Castling
     if (castling[1] && originY === destY && destX === 6) {
         $('.col-1[row=' + destY + '][col=7]').empty();
+        
+        // Add ability to put in black rook if required
+        // ASCII code is $#9820
         $('.col-1[row=' + destY + '][col=5]').html(`<p class="piece">&#9814;</p>`);
         return true;
-    }
+    } // Add queenside castling
 
     // Make sure it is not moving in a straight line in either direction
     if ((destX > originX + 1 || destX < originX - 1) || (destY > originY + 1 || destY < originY - 1)) {
