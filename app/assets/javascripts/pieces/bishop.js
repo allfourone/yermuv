@@ -57,7 +57,9 @@ let validateBishop = (piece, destination, state) => {
             // since we check destination with empty & capturable()
             let i = originY - (1 * yDirection);
             let j = originX - (1 * xDirection);
-            while (i !== destY || j !== destX) {
+            
+            // only check within the state array
+            while (i !== destY || j !== destX && i >= 0 && i < 8 && j >= 0 && j < 8) {
                 // check the state at the coordinates for a piece
                 if (state[i][j]) {
 

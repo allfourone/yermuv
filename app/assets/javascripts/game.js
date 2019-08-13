@@ -117,12 +117,13 @@ $(() => {
             // Check if the move is valid
             if (validateMove(ui.draggable, e.target, state)) {
 
-                console.log(ui.draggable);
                 // Get color of moving piece
                 let color = ui.draggable.html().replace(/\s/g, '').charCodeAt(0) < 9818 ? "white" : "black";
+                // Get color of opposite pieces
+                let opposingColor = color == "white" ? "black" : "white";
 
-                // Check if the piece is in check
-                isInCheck(color, state, enPassant);
+                // Check if the opposing king is in check
+                isInCheck(opposingColor, state, enPassant);
 
                 // Get rid of old en passant value
                 if (enPassant.length > 0) {

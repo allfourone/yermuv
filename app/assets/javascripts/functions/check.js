@@ -56,20 +56,19 @@ let isInCheck = (color, state, enPassant) => {
 	}
 	
 	// Locate the king in the DOM
-	let destination = $('.col-1[row=' + kingPosition[0] + '][col=' + kingPosition[1] + ']')[0]
+	let kingSquare = $('.col-1[row=' + kingPosition[0] + '][col=' + kingPosition[1] + ']')[0]
 	
 	// Iterate over each piece, and check for a valid move to the king
 	$('.piece').each(function(i) {
 		if ($(this).html().replace(/\s/g, '').charCodeAt(0) != 9812 && $(this).html().replace(/\s/g, '').charCodeAt(0) != 9818) {
 			
 			// check if the piece can make a move to the king
-			if ( validateMove($(this), destination, state, enPassant) ) {
-				
+			if ( validateMove($(this), kingSquare, state, enPassant) ) {
+
 				// check if the piece is of an opposite color
 				// if so, the king is in check!
 				pieceColor = $(this).html().replace(/\s/g, '').charCodeAt(0) < 9818 ? "white" : "black";
 				if ( pieceColor !== color ) {
-					console.log("check by ", $(this).html().replace(/\s/g, ''), 'charCode =', $(this).html().replace(/\s/g, '').charCodeAt(0), 'pieceColor =',pieceColor, 'color =', color)
 					return true;
 				}				
 			}
