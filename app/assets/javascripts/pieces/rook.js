@@ -55,7 +55,6 @@ let validateRook = (piece, destination, state) => {
             while (i !== destY) {
                 // check the state at the coordinates for a piece
                 if (state[i][originX]) {
-
                     return true;
                 }
                 // Increment the counter based on the direction of travel
@@ -69,7 +68,6 @@ let validateRook = (piece, destination, state) => {
             while (i !== destX) {
                 // check the state at the coordinates for a piece
                 if (state[originY][i]) {
-
                     return true;
                 }
                 // Increment the counter based on the direction of travel

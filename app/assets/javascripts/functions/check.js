@@ -68,12 +68,14 @@ let isInCheck = (color, state, enPassant) => {
 				// check if the piece is of an opposite color
 				// if so, the king is in check!
 				pieceColor = $(this).html().replace(/\s/g, '').charCodeAt(0) < 9818 ? "white" : "black";
+				console.log(pieceColor, color)
 				if ( pieceColor !== color ) {
+					console.log($(this).html().replace(/\s/g, '').charCodeAt(0), kingSquare)
 					return true;
 				}				
 			}
 		}		
 	});
 
-	return false;
+	//return false;
 }

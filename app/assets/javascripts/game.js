@@ -122,9 +122,6 @@ $(() => {
                 // Get color of opposite pieces
                 let opposingColor = color == "white" ? "black" : "white";
 
-                // Check if the opposing king is in check
-                isInCheck(opposingColor, state, enPassant);
-
                 // Get rid of old en passant value
                 if (enPassant.length > 0) {
                     enPassant = [];
@@ -151,6 +148,12 @@ $(() => {
                 e.target.innerHTML = `<p class="piece">${ui.draggable.html()}</p>`;
                 // Delete the piece
                 ui.draggable.remove();
+
+                // Check if the player's king is in check                
+                if (isInCheck(opposingColor, state, enPassant)) {
+                    console.log(isInCheck(opposingColor, state, enPassant))
+                }
+
                 // Make all the pieces draggable again
                 $('.piece').draggable({
                     revert: "invalid"

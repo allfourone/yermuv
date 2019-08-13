@@ -51,7 +51,7 @@ let validateBishop = (piece, destination, state) => {
         let yDirection = originY - destY > 0 ? 1 : -1;
 
         // Make sure that it doesn't move vertically or horizontally so the x-column and y-column
-        //will change with each movement
+        // will change with each movement
         if (originX !== destX && originY !== destY) {
             // Check for every square, not counting origin or destination
             // since we check destination with empty & capturable()
@@ -62,7 +62,6 @@ let validateBishop = (piece, destination, state) => {
             while (i !== destY || j !== destX && i >= 0 && i < 8 && j >= 0 && j < 8) {
                 // check the state at the coordinates for a piece
                 if (state[i][j]) {
-
                     return true;
                 }
                 // Increment the counter based on the direction of travel
@@ -74,7 +73,7 @@ let validateBishop = (piece, destination, state) => {
         return false;
     }
     //if the square is empty, capturable, not blocked & the piece moved diagonally
-    if ((empty || capturable()) && !blocked() && (originX !== destX && originY !== destY)) {
+    if ((empty || capturable()) && !blocked() && ( Math.abs(originX - destX) === Math.abs(originY - destY) ) ) {
 
         return true;
     }
