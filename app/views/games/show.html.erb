@@ -7,9 +7,13 @@
     <h1 class="centered">
         <%= @game.name %>
         <br />
-        <% @game.white_piece_captured.each do |piece| %>
-        <%= piece %>
-        <% end %>
+        <div class="captured-white-piece-container">
+            <% @game.white_piece_captured.each do |piece| %>
+                <div class="captured-piece">
+                    <%= piece %>
+                </div>
+            <% end %>
+        </div>
         <br />
         <%= link_to 'Return Home', root_path, class: 'btn btn-success'%>
     </h1>

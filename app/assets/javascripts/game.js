@@ -141,6 +141,13 @@
                      revert: "invalid"
                  });
 
+                 if ( $('.captured-white-piece-container').length !== whitePiecesCaptured.length ) {
+                     $('.captured-white-piece-container').empty();
+                     for (let i = 0; i < whitePiecesCaptured.length; i++) {
+                        let capturedPiece = `<div class="captured-piece">${whitePiecesCaptured[i]}</div>`;
+                        $('.captured-white-piece-container').append(capturedPiece);
+                     }
+                 } 
                  // Update the game state
                  updateGameData();
              } else {
