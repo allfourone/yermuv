@@ -64,7 +64,7 @@ $(() => {
     getGameData();
 
     // Piece validation function
-    let piece = (piece, destination) => {
+    let validateMove = (piece, destination, state) => {
         switch (piece.html().replace(/\s/g, '').charCodeAt(0)) {
 
             // If piece is a pawn...
@@ -72,27 +72,27 @@ $(() => {
             case 9823:
                 return validatePawn(piece, destination, state, enPassant);
 
-                // If piece is a rook...
+            // If piece is a rook...
             case 9820:
             case 9814:
                 return validateRook(piece, destination, state);
 
-                //if piece is a knight...
+            //if piece is a knight...
             case 9816:
             case 9822:
                 return validateKnight(piece, destination, state);
 
-                // If piece is a bishop..
+            // If piece is a bishop..
             case 9815:
             case 9821:
                 return validateBishop(piece, destination, state);
 
-                // If piece is a king..
+            // If piece is a king..
             case 9812:
             case 9818:
                 return validateKing(piece, destination, state);
 
-                // If piece is a queen..
+            // If piece is a queen..
             case 9813:
             case 9819:
                 return validateQueen(piece, destination, state);
@@ -115,13 +115,14 @@ $(() => {
         drop: (e, ui) => {
 
             // Check if the move is valid
-            if (piece(ui.draggable, e.target, state)) {
+            if (validateMove(ui.draggable, e.target, state)) {
 
+                console.log(ui.draggable);
                 // Get color of moving piece
                 let color = ui.draggable.html().replace(/\s/g, '').charCodeAt(0) < 9818 ? "white" : "black";
 
                 // Check if the piece is in check
-                isInCheck(color, state);
+                isInCheck(color, state, enPassant);
 
                 // Get rid of old en passant value
                 if (enPassant.length > 0) {
@@ -155,7 +156,7 @@ $(() => {
                 });
 
                 // Update the game state
-                updateGameData();
+                //updateGameData();
             } else {
                 // Reset the draggable
                 return $(ui.draggable).draggable("option", "revert", true);

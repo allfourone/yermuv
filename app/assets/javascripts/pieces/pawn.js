@@ -41,7 +41,7 @@ let validatePawn = (piece, destination, state, enPassant) => {
     let direction = pieceColor === "white" ? 1 : -1;
 
     // Allow en passant
-    if (enPassant.length > 0) {
+    if (enPassant && enPassant.length > 0) {
         if (direction > 0 && Math.abs(originX - enPassant[0]) == 1 && destX == enPassant[0] && destY + 1 == enPassant[1]) {
             $('.col-1[row=' + enPassant[1] + '][col=' + enPassant[0] + ']').empty();
             return true;
