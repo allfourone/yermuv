@@ -19,6 +19,8 @@ Yermuv was built with:
 - Rubocop
 - Devise
 - Omniauth
+- Bootstrap
+- Heroku
 
 # Tests
 
