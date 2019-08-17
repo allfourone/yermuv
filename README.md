@@ -16,6 +16,8 @@ Yermuv was built with:
 - Ruby on Rails 2.5.3
 - Git
 - Github
+- CSS
+- Postgresql
 - Rubocop
 - Devise
 - Omniauth
