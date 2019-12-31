@@ -186,7 +186,7 @@ GEM
     prism-rails (1.6.0.3)
       railties (>= 4.2, < 6)
     public_suffix (3.1.1)
-    puma (3.12.1)
+    puma (3.12.2)
     pusher-client (0.6.2)
       json
       websocket (~> 1.0)
@@ -352,7 +352,7 @@ DEPENDENCIES
   omniauth-google-oauth2
   pg (>= 0.18, < 2.0)
   prism-rails
-  puma (~> 3.11)
+  puma (~> 3.12)
   rails (~> 5.2.3)
   rake
   rspec
